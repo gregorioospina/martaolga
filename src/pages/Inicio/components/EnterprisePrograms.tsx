@@ -42,6 +42,7 @@ const EnterprisePrograms = (props: IEnterprisePrograms) => {
       title: {
         borderBottom: `solid 2pt ${theme.palette.primary.main}`,
         height: "min-content",
+        fontWeight: "bold",
       },
       viewallbutton: {
         width: "100%",
@@ -53,13 +54,31 @@ const EnterprisePrograms = (props: IEnterprisePrograms) => {
   const classes = useStyles();
 
   return (
-    <Grid item container className={classes.root} justifyContent="center">
-      <Grid item container justifyContent="center" xs={12}>
+    <Grid
+      item
+      container
+      className={classes.root}
+      alignContent="center"
+      justifyContent="center"
+    >
+      <Grid
+        item
+        container
+        justifyContent="center"
+        xs={12}
+        style={{ height: "min-content" }}
+      >
         <Typography variant="h4" className={classes.title}>
           Programas para Empresas
         </Typography>
       </Grid>
-      <Grid item container justifyContent="space-evenly" xs={12}>
+      <Grid
+        item
+        container
+        justifyContent="space-evenly"
+        xs={12}
+        style={{ marginTop: 25 }}
+      >
         {programs.map((p) => {
           return (
             <Grid

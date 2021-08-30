@@ -37,7 +37,7 @@ const MainBanner = (props: IMainBanner) => {
         style={{ paddingLeft: 20 }}
       >
         <Grid item>
-          <Typography variant="h4" align="left">
+          <Typography variant="h4" align="left" style={{ fontWeight: "bold" }}>
             Lorem ipsun buscando le afalksd jfskjfaldkfj k
           </Typography>
         </Grid>

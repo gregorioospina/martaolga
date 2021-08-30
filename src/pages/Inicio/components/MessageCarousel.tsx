@@ -1,29 +1,62 @@
-import { makeStyles, Theme, createStyles, Grid } from "@material-ui/core";
-import React, { useState, useEffect } from "react";
+import {
+  makeStyles,
+  Theme,
+  createStyles,
+  Grid,
+  Typography,
+  Button,
+  IconButton,
+} from "@material-ui/core";
+import React, { useState, useEffect, useRef } from "react";
+import ArrowRightIcon from "@material-ui/icons/ArrowRight";
+import ArrowLeftIcon from "@material-ui/icons/ArrowLeft";
 
-const steps = [
+export interface IStep {
+  title: string;
+  body: string;
+}
+
+const ssteps: IStep[] = [
   {
-    title: "",
-    body: "",
+    title: "Que es transformar",
+    body: "asDFLas falsThe page will reload if you make edits. You will also see any lint errors in the console.",
   },
   {
-    title: "",
-    body: "",
+    title: "Builds the app for production",
+    body: "to the copied scripts so you can tweak them. At this point you’re on your own.",
   },
   {
-    title: "",
-    body: "",
+    title: "Que es transformar",
+    body: "asDFLas falsThe page will reload if you make edits. You will also see any lint errors in the console.",
   },
   {
-    title: "",
-    body: "",
+    title: "Builds the app for production",
+    body: "to the copied scripts so you can tweak them. At this point you’re on your own.",
   },
 ];
 
-interface IMessageCarousel {}
+interface IMessageCarousel {
+  backgroundColor: string;
+  color: string;
+  steps: IStep[];
+}
 
-const MessageCarousel = (props: IMessageCarousel) => {
+const MessageCarousel = ({
+  backgroundColor,
+  color,
+  steps,
+}: IMessageCarousel) => {
   const [step, setStep] = useState<number>(0);
+  const prevStepRef = useRef<number | undefined>(undefined);
+
+  const handleClick = (mod: number) => {
+    const ns = step + mod;
+    if (ns >= ssteps.length) {
+      setStep(0);
+    } else if (ns < 0) {
+      setStep(ssteps.length - 1);
+    } else setStep(ns);
+  };
 
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -35,12 +68,91 @@ const MessageCarousel = (props: IMessageCarousel) => {
           opacity: 0,
         },
       },
-      root: {},
+      "@keyframes fadein": {
+        "0%": {
+          opacity: 0,
+        },
+        "100%": {
+          opacity: 1,
+        },
+      },
+      root: {
+        height: "30vh",
+        backgroundColor,
+        color,
+        position: "relative",
+      },
+      step: {
+        position: "absolute",
+        left: "50%",
+        top: "50%",
+        transform: "translate(-50%, -50%)",
+        opacity: 0,
+        "&.fadein": {
+          opacity: 1,
+          animation: "$fadein 500ms linear",
+        },
+        "&.fadeout": {
+          animation: "$fadeout 500ms linear",
+        },
+      },
+      leftButton: {
+        position: "absolute",
+        top: "50%",
+        left: 10,
+        transform: "translate(0, -50%)",
+        color,
+      },
+      rightButton: {
+        position: "absolute",
+        top: "50%",
+        right: 10,
+        transform: "translate(0, -50%)",
+        color,
+      },
     })
   );
 
   const classes = useStyles();
 
-  return <Grid item container></Grid>;
+  return (
+    <Grid
+      item
+      container
+      className={classes.root}
+      justifyContent="center"
+      alignItems="center"
+    >
+      {ssteps.map((s, i) => (
+        <Grid
+          item
+          xs={8}
+          className={`${
+            step === i ? "fadein" : prevStepRef.current === i ? "fadeout" : ""
+          } ${classes.step}`}
+        >
+          <Typography
+            variant="h5"
+            style={{ fontWeight: "bold", marginBottom: 15 }}
+          >
+            {s.title}
+          </Typography>
+          <Typography variant="body1">{s.body}</Typography>
+        </Grid>
+      ))}
+      <IconButton
+        onClick={() => handleClick(-1)}
+        className={classes.leftButton}
+      >
+        <ArrowLeftIcon />
+      </IconButton>
+      <IconButton
+        onClick={() => handleClick(1)}
+        className={classes.rightButton}
+      >
+        <ArrowRightIcon />
+      </IconButton>
+    </Grid>
+  );
 };
 export default MessageCarousel;

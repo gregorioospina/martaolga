@@ -13,16 +13,19 @@ const programs = [
     image:
       "https://citymarteg.com/image/cache/catalog/cat/Drinks/soda/coca-cola-bottle-330-ml-1100x1100.jpg",
     name: "Transformacion del ser que queiro ser y el que puedo ser",
+    pathname: "",
   },
   {
     image:
       "https://citymarteg.com/image/cache/catalog/cat/Drinks/soda/coca-cola-bottle-330-ml-1100x1100.jpg",
     name: "Transformacion del ser que queiro ser y el que puedo ser",
+    pathname: "",
   },
   {
     image:
       "https://citymarteg.com/image/cache/catalog/cat/Drinks/soda/coca-cola-bottle-330-ml-1100x1100.jpg",
     name: "Transformacion del ser que queiro ser y el que puedo ser",
+    pathname: "",
   },
 ];
 
@@ -33,6 +36,7 @@ const OnlinePrograms = (props: IOnlinePrograms) => {
     createStyles({
       root: {
         height: "60vh",
+        backgroundColor: "#f7f7f7",
       },
       programCard: {
         height: "35vh",
@@ -46,6 +50,7 @@ const OnlinePrograms = (props: IOnlinePrograms) => {
       title: {
         borderBottom: `solid 2pt ${theme.palette.primary.main}`,
         height: "min-content",
+        fontWeight: "bold",
       },
       viewallbutton: {
         width: "100%",
@@ -57,13 +62,31 @@ const OnlinePrograms = (props: IOnlinePrograms) => {
   const classes = useStyles();
 
   return (
-    <Grid item container className={classes.root} justifyContent="center">
-      <Grid item container justifyContent="center" xs={12}>
+    <Grid
+      item
+      container
+      className={classes.root}
+      justifyContent="center"
+      alignContent="center"
+    >
+      <Grid
+        item
+        container
+        justifyContent="center"
+        xs={12}
+        style={{ height: "min-content" }}
+      >
         <Typography variant="h4" className={classes.title}>
           Programas Online
         </Typography>
       </Grid>
-      <Grid item container justifyContent="space-evenly" xs={12}>
+      <Grid
+        item
+        container
+        justifyContent="space-evenly"
+        xs={12}
+        style={{ marginTop: 25 }}
+      >
         {programs.map((p) => {
           return (
             <Grid
@@ -84,7 +107,7 @@ const OnlinePrograms = (props: IOnlinePrograms) => {
           );
         })}
       </Grid>
-      <Grid item xs={8}>
+      <Grid item xs={8} style={{ marginTop: 25 }}>
         <Button
           color="primary"
           variant="contained"
