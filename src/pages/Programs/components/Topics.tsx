@@ -4,6 +4,8 @@ import {
   makeStyles,
   Theme,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import Title from "../../AboutMe/components/Title";
@@ -18,12 +20,16 @@ interface ITopics {
 }
 
 const Topics = (props: ITopics) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       divider: {
         borderBottom: `solid 1.5pt ${
           props.color ? props.color : theme.palette.primary.main
         }`,
+        maxWidth: "90%",
         width: 320,
       },
       topic: {
@@ -32,14 +38,14 @@ const Topics = (props: ITopics) => {
       },
       list: {
         marginTop: 20,
-        paddingLeft: 40,
+        paddingLeft: isMobile ? 10 : 40,
       },
     })
   );
 
   const classes = useStyles();
   return (
-    <Grid container direction="column">
+    <Grid container direction="column" style={{ padding: 16 }}>
       <Grid item>
         <Title color={props.color} title={"Línea Temática"} />
       </Grid>

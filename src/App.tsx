@@ -12,7 +12,8 @@ import ProgramDetail, { IProgramDetail } from "./pages/Programs/ProgramDetail";
 
 import p1_main from "./pages/Programs/images/P1/main.png";
 import p1_pillars from "./pages/Programs/images/P1/afterColumnImage.png";
-import p1_icon from "./pages/Programs/images/P1/icon.png";
+import p1_icon from "./pages/Programs/images/P1/iconos programas-01.svg";
+import BlogsMenu from "./pages/Blog/BlogsMenu";
 
 const programs: IProgramDetail[] = [
   {
@@ -60,7 +61,7 @@ const programs: IProgramDetail[] = [
         </Typography>
       </React.Fragment>
     ),
-    icon: "",
+    icon: p1_icon,
     photo: p1_main,
     afterColumnImage: p1_pillars,
     subtitle: "El Ser que soy y el que puedo Ser",
@@ -120,6 +121,7 @@ const programs: IProgramDetail[] = [
       },
     ],
     footerImage: "",
+    url: "",
   },
   {
     color: "#ff5358",
@@ -133,6 +135,7 @@ const programs: IProgramDetail[] = [
     title: "",
     topics: [{ subtopics: [], topic: "", description: "" }],
     footerImage: "",
+    url: "",
   },
   {
     color: "#ff5358",
@@ -146,6 +149,7 @@ const programs: IProgramDetail[] = [
     title: "",
     topics: [{ subtopics: [], topic: "", description: "" }],
     footerImage: "",
+    url: "",
   },
   {
     color: "#ff5358",
@@ -159,6 +163,7 @@ const programs: IProgramDetail[] = [
     title: "",
     topics: [{ subtopics: [], topic: "", description: "" }],
     footerImage: "",
+    url: "",
   },
   {
     color: "#ff5358",
@@ -172,6 +177,7 @@ const programs: IProgramDetail[] = [
     title: "",
     topics: [{ subtopics: [], topic: "", description: "" }],
     footerImage: "",
+    url: "",
   },
 ];
 
@@ -200,7 +206,8 @@ function App() {
         {/* <AboutMe /> */}
         {/* <Contact /> */}
         {/* <Programs /> */}
-        <ProgramDetail {...programs[0]} />
+        {/* <ProgramDetail {...programs[0]} /> */}
+        <BlogsMenu />
         <Footer />
       </div>
     </ThemeProvider>
