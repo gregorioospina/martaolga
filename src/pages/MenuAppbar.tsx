@@ -7,7 +7,7 @@ import {
   Theme,
   Typography,
 } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
 const HEIGHT = 100;
@@ -17,6 +17,14 @@ interface IAppbar {}
 
 const MenuAppbar = (props: IAppbar) => {
   const history = useHistory();
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [location]);
 
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -65,7 +73,7 @@ const MenuAppbar = (props: IAppbar) => {
         style={{ margin: 0, maxWidth: "100%" }}
       >
         <Grid item className={classes.griditem}>
-          <Button className={classes.button} onClick={() => handleClick("")}>
+          <Button className={classes.button} onClick={() => handleClick("/")}>
             <Typography>MartaOlga</Typography>
           </Button>
         </Grid>
@@ -107,7 +115,7 @@ const MenuAppbar = (props: IAppbar) => {
         <Grid item className={classes.griditem}>
           <Button
             className={classes.button}
-            onClick={() => handleClick("contactame")}
+            onClick={() => handleClick("contacto")}
           >
             <Typography>Contáctame</Typography>
           </Button>

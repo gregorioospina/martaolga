@@ -1,5 +1,6 @@
 import { Grid, Typography, useMediaQuery, useTheme } from "@material-ui/core";
 import React from "react";
+import Contact from "../Contact/Contact";
 import OnlinePrograms from "../Inicio/components/OnlinePrograms";
 import FormationPillar, {
   IFormationPillar,
@@ -46,55 +47,58 @@ const AboutMe = (props: IAboutMe) => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
-    <Grid
-      container
-      direction="column"
-      style={{ marginTop: 100, backgroundColor: "white" }}
-    >
-      <Grid item style={{ position: "relative" }}>
-        <img
-          src={banner}
-          width="100%"
-          style={{ objectFit: "contain" }}
-          alt="about me banner"
-        />
-        <Grid
-          item
-          container
-          direction="column"
-          justifyContent="center"
-          alignItems="center"
-          style={{ position: "absolute", bottom: 15 }}
-        >
-          <Typography
-            style={{
-              display: "block",
-              color: "white",
-              fontSize: isMobile ? "0.85rem" : "1.8rem",
-            }}
+    <React.Fragment>
+      <Grid
+        container
+        direction="column"
+        style={{ marginTop: 100, backgroundColor: "white" }}
+      >
+        <Grid item style={{ position: "relative" }}>
+          <img
+            src={banner}
+            width="100%"
+            style={{ objectFit: "contain" }}
+            alt="about me banner"
+          />
+          <Grid
+            item
+            container
+            direction="column"
+            justifyContent="center"
+            alignItems="center"
+            style={{ position: "absolute", bottom: 15 }}
           >
-            La semilla de un propósito
-          </Typography>
-          <Typography
-            style={{
-              display: "block",
-              color: "white",
-              fontSize: isMobile ? "0.85rem" : "1.8rem",
-              fontWeight: "bold",
-            }}
-          >
-            MartaOlga
-          </Typography>
+            <Typography
+              style={{
+                display: "block",
+                color: "white",
+                fontSize: isMobile ? "0.85rem" : "1.8rem",
+              }}
+            >
+              La semilla de un propósito
+            </Typography>
+            <Typography
+              style={{
+                display: "block",
+                color: "white",
+                fontSize: isMobile ? "0.85rem" : "1.8rem",
+                fontWeight: "bold",
+              }}
+            >
+              MartaOlga
+            </Typography>
+          </Grid>
         </Grid>
+        <WhoIs />
+        <WhatIs />
+        {pillars.map((p) => (
+          <FormationPillar {...p} />
+        ))}
+        <div style={{ height: 30 }}></div>
+        <OnlinePrograms />
       </Grid>
-      <WhoIs />
-      <WhatIs />
-      {pillars.map((p) => (
-        <FormationPillar {...p} />
-      ))}
-      <div style={{ height: 30 }}></div>
-      <OnlinePrograms />
-    </Grid>
+      <Contact />
+    </React.Fragment>
   );
 };
 export default AboutMe;

@@ -7,45 +7,47 @@ import {
   Button,
 } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
+import program1 from "../images/fotos-inicio-13.png";
+import program2 from "../images/fotos-inicio-14.png";
+import program3 from "../images/fotos-inicio-15.png";
 
 const programs = [
   {
-    image:
-      "https://citymarteg.com/image/cache/catalog/cat/Drinks/soda/coca-cola-bottle-330-ml-1100x1100.jpg",
+    image: program1,
     name: "Transformacion del ser que queiro ser y el que puedo ser",
     pathname: "",
   },
   {
-    image:
-      "https://citymarteg.com/image/cache/catalog/cat/Drinks/soda/coca-cola-bottle-330-ml-1100x1100.jpg",
+    image: program2,
     name: "Transformacion del ser que queiro ser y el que puedo ser",
     pathname: "",
   },
   {
-    image:
-      "https://citymarteg.com/image/cache/catalog/cat/Drinks/soda/coca-cola-bottle-330-ml-1100x1100.jpg",
+    image: program3,
     name: "Transformacion del ser que queiro ser y el que puedo ser",
     pathname: "",
   },
 ];
 
-interface IOnlinePrograms {}
+interface IOnlinePrograms {
+  showAllButton?: boolean;
+}
 
-const OnlinePrograms = (props: IOnlinePrograms) => {
+const OnlinePrograms = ({ showAllButton }: IOnlinePrograms) => {
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       root: {
-        height: "60vh",
-        backgroundColor: "#f7f7f7",
+        height: "50vh",
+        // backgroundColor: "#f7f7f7",
       },
       programCard: {
-        height: "35vh",
+        // height: "35vh",
         width: "35vh",
         boxShadow: "1pt 1pt 5px -1px #00000038",
-        padding: 15,
+        // padding: 15,
         margin: 10,
         backgroundColor: "white",
-        borderRadius: 9,
+        borderRadius: 27,
       },
       title: {
         borderBottom: `solid 2pt ${theme.palette.primary.main}`,
@@ -98,24 +100,26 @@ const OnlinePrograms = (props: IOnlinePrograms) => {
               wrap="nowrap"
             >
               <Grid item>
-                <img src={p.image} alt={p.name} height="200px" width="200px" />
+                <img src={p.image} alt={p.name} height="100%" width="100%" />
               </Grid>
-              <Grid item>
+              {/* <Grid item>
                 <Typography variant="h6">{p.name}</Typography>
-              </Grid>
+              </Grid> */}
             </Grid>
           );
         })}
       </Grid>
-      <Grid item xs={8} style={{ marginTop: 25 }}>
-        <Button
-          color="primary"
-          variant="contained"
-          className={classes.viewallbutton}
-        >
-          Ver todos
-        </Button>
-      </Grid>
+      {showAllButton && (
+        <Grid item xs={8} style={{ marginTop: 25 }}>
+          <Button
+            color="primary"
+            variant="contained"
+            className={classes.viewallbutton}
+          >
+            Ver todos
+          </Button>
+        </Grid>
+      )}
     </Grid>
   );
 };

@@ -26,7 +26,15 @@ const Contact = (props: IContact) => {
   const classes = useStyles();
 
   return (
-    <Grid container style={{ marginTop: 140 }}>
+    <Grid
+      container
+      style={{
+        paddingTop: 30,
+        paddingLeft: 20,
+        paddingBottom: 20,
+        backgroundColor: "white",
+      }}
+    >
       <Grid item xs={6} container>
         <Grid item>
           <Typography variant="h4">

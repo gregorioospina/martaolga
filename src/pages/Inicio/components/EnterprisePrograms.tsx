@@ -8,16 +8,25 @@ import {
 } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 
+import { ReactComponent as ProgramaA } from "../../Programs/images/iconosprogramas-04.svg";
+import { ReactComponent as ProgramaB } from "../../Programs/images/iconosprogramas-07.svg";
+
 const programs = [
   {
-    image:
-      "https://citymarteg.com/image/cache/catalog/cat/Drinks/soda/coca-cola-bottle-330-ml-1100x1100.jpg",
-    name: "Transformacion del ser que queiro ser y el que puedo ser",
+    image: (
+      <ProgramaA
+        style={{ maxHeight: "70%", marginTop: 10, marginBottom: 15 }}
+      />
+    ),
+    name: "Conciencia para un FUTURO retador",
   },
   {
-    image:
-      "https://citymarteg.com/image/cache/catalog/cat/Drinks/soda/coca-cola-bottle-330-ml-1100x1100.jpg",
-    name: "Transformacion del ser que queiro ser y el que puedo ser",
+    image: (
+      <ProgramaB
+        style={{ maxHeight: "70%", marginTop: 10, marginBottom: 15 }}
+      />
+    ),
+    name: "Formar el SER ÉTICO, el SER de la cultura",
   },
 ];
 
@@ -38,6 +47,7 @@ const EnterprisePrograms = (props: IEnterprisePrograms) => {
         margin: 10,
         backgroundColor: "white",
         borderRadius: 9,
+        cursor: "pointer",
       },
       title: {
         borderBottom: `solid 2pt ${theme.palette.primary.main}`,
@@ -47,6 +57,10 @@ const EnterprisePrograms = (props: IEnterprisePrograms) => {
       viewallbutton: {
         width: "100%",
         height: 40,
+      },
+      programTitle: {
+        fontWeight: "bold",
+        fontSize: "1.4rem",
       },
     })
   );
@@ -88,12 +102,13 @@ const EnterprisePrograms = (props: IEnterprisePrograms) => {
               direction="column"
               xs={3}
               wrap="nowrap"
+              justifyContent="space-evenly"
             >
-              <Grid item>
-                <img src={p.image} alt={p.name} height="200px" width="200px" />
-              </Grid>
-              <Grid item>
-                <Typography variant="h6">{p.name}</Typography>
+              {p.image}
+              <Grid item container alignItems="center">
+                <Typography variant="h6" className={classes.programTitle}>
+                  {p.name}
+                </Typography>
               </Grid>
             </Grid>
           );

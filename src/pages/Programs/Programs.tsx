@@ -7,39 +7,24 @@ import {
 } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import Title from "../AboutMe/components/Title";
+import Contact from "../Contact/Contact";
+import OnlinePrograms from "../Inicio/components/OnlinePrograms";
 
-const onlinePrograms = [
-  {
-    image:
-      "https://citymarteg.com/image/cache/catalog/cat/Drinks/soda/coca-cola-bottle-330-ml-1100x1100.jpg",
-    name: "Transformacion del ser que queiro ser y el que puedo ser",
-    pathname: "",
-  },
-  {
-    image:
-      "https://citymarteg.com/image/cache/catalog/cat/Drinks/soda/coca-cola-bottle-330-ml-1100x1100.jpg",
-    name: "Transformacion del ser que queiro ser y el que puedo ser",
-    pathname: "",
-  },
-  {
-    image:
-      "https://citymarteg.com/image/cache/catalog/cat/Drinks/soda/coca-cola-bottle-330-ml-1100x1100.jpg",
-    name: "Transformacion del ser que queiro ser y el que puedo ser",
-    pathname: "",
-  },
-];
+import programa4 from "./images/iconosprogramas-04.svg";
+import programa5 from "./images/iconosprogramas-05.svg";
+
+import backgroundImage from "./images/munecos-fondo.png";
 
 const enterprisePrograms = [
   {
-    image:
-      "https://citymarteg.com/image/cache/catalog/cat/Drinks/soda/coca-cola-bottle-330-ml-1100x1100.jpg",
+    image: programa4,
     name: "Transformacion del ser que queiro ser y el que puedo ser",
     pathname: "",
   },
   {
-    image:
-      "https://citymarteg.com/image/cache/catalog/cat/Drinks/soda/coca-cola-bottle-330-ml-1100x1100.jpg",
+    image: programa5,
     name: "Transformacion del ser que queiro ser y el que puedo ser",
+
     pathname: "",
   },
 ];
@@ -71,52 +56,89 @@ const Programs = (props: IPrograms) => {
         width: "100%",
         height: 40,
       },
+      programName: {
+        fontSize: "1.2rem",
+        fontWeight: "bold",
+      },
     })
   );
 
   const classes = useStyles();
 
   return (
-    <Grid
-      container
-      direction="column"
-      style={{ marginTop: 130, padding: "0px 40px" }}
-    >
-      <Grid item>
+    <React.Fragment>
+      <Grid
+        container
+        direction="column"
+        style={{
+          marginTop: 30,
+          padding: "100px 40px",
+          paddingTop: 0,
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundPosition: "center",
+          backgroundSize: "contain",
+          backgroundRepeat: "repeat-y",
+        }}
+      >
+        {/* <Grid item>
         <Title title="Programas Online" />
-      </Grid>
-      <Grid item container justifyContent="center" style={{ marginTop: 20 }}>
-        {onlinePrograms.map((p) => (
-          <Grid item xs={10} sm={4} container>
-            <div className={classes.programCard}>
+      </Grid> */}
+        <Grid item container justifyContent="center" style={{ marginTop: 20 }}>
+          <OnlinePrograms />
+          {/* {onlinePrograms.map((p) => (
+          <Grid item xs={10} sm={4} container alignItems="center">
+          <Grid
+          item
+              container
+              alignItems="center"
+              justifyContent="center"
+              className={classes.programCard}
+              >
               <Grid item>
-                <img src={p.image} alt={p.name} height="200px" width="200px" />
+              <img src={p.image} alt={p.name} height="200px" width="200px" />
               </Grid>
               <Grid item>
-                <Typography variant="h6">{p.name}</Typography>
+              <Typography variant="h6" className={classes.programName}>
+              {p.name}
+              </Typography>
               </Grid>
-            </div>
-          </Grid>
-        ))}
-      </Grid>
-      <Grid item style={{ marginTop: 30 }}>
-        <Title title="Programas para Empresas" />
-      </Grid>
-      <Grid item container justifyContent="center" style={{ marginTop: 20 }}>
-        {enterprisePrograms.map((p) => (
-          <Grid item xs={10} sm={4} container>
-            <div className={classes.programCard}>
-              <Grid item>
-                <img src={p.image} alt={p.name} height="200px" width="200px" />
               </Grid>
-              <Grid item>
-                <Typography variant="h6">{p.name}</Typography>
               </Grid>
-            </div>
-          </Grid>
-        ))}
+            ))} */}
+        </Grid>
+        <Grid item style={{ marginTop: 30 }}>
+          <Title title="Programas para Empresas" />
+        </Grid>
+        <Grid item container justifyContent="center" style={{ marginTop: 20 }}>
+          {enterprisePrograms.map((p) => (
+            <Grid item xs={10} sm={4} container>
+              <Grid
+                item
+                container
+                alignItems="center"
+                justifyContent="center"
+                className={classes.programCard}
+              >
+                <Grid item>
+                  <img
+                    src={p.image}
+                    alt={p.name}
+                    height="200px"
+                    width="200px"
+                  />
+                </Grid>
+                <Grid item>
+                  <Typography variant="h6" className={classes.programName}>
+                    {p.name}
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Grid>
+          ))}
+        </Grid>
       </Grid>
-    </Grid>
+      <Contact />
+    </React.Fragment>
   );
 };
 export default Programs;

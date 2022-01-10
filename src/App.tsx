@@ -9,11 +9,14 @@ import Contact from "./pages/Contact/Contact";
 import AboutMe from "./pages/AboutMe/AboutMe";
 import Programs from "./pages/Programs/Programs";
 import ProgramDetail, { IProgramDetail } from "./pages/Programs/ProgramDetail";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import p1_main from "./pages/Programs/images/P1/main.png";
 import p1_pillars from "./pages/Programs/images/P1/afterColumnImage.png";
 import p1_icon from "./pages/Programs/images/P1/iconos programas-01.svg";
-import BlogsMenu from "./pages/Blog/BlogsMenu";
+import BlogsMenu from "./pages/Blog/components/BlogsMenu";
+import Blog from "./pages/Blog/Blog";
+import Methodology from "./pages/Methodology/Methodology";
 
 const programs: IProgramDetail[] = [
   {
@@ -200,16 +203,25 @@ function App() {
 
   return (
     <ThemeProvider theme={theme()}>
-      <div className="App">
-        <MenuAppbar />
-        {/* <Inicio /> */}
-        {/* <AboutMe /> */}
-        {/* <Contact /> */}
-        {/* <Programs /> */}
-        {/* <ProgramDetail {...programs[0]} /> */}
-        <BlogsMenu />
-        <Footer />
-      </div>
+      <Router>
+        <div className="App">
+          <MenuAppbar />
+          <Switch>
+            <Route exact path="/" component={Inicio} />
+            <Route exact path="/martaolga" component={AboutMe} />
+            <Route exact path="/programas" component={Programs} />
+            <Route exact path="/metodologia" component={Methodology} />
+            <Route
+              exact
+              path="/programas/&:programindex"
+              component={ProgramDetail}
+            />
+            <Route exact path="/blog" component={Blog} />
+            <Route exact path="/contacto" component={Contact} />
+          </Switch>
+          <Footer />
+        </div>
+      </Router>
     </ThemeProvider>
   );
 }

@@ -15,7 +15,7 @@ const Newsletter = (props: INewsletter) => {
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       root: {
-        height: "50vh",
+        height: "40vh",
         backgroundColor: theme.palette.primary.main,
         color: "white",
       },

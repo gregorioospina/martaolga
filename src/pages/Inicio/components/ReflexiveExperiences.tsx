@@ -8,6 +8,8 @@ import {
 } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 
+import fotoEscritorio from "../images/fotos-inicio-16.png";
+
 interface IReflexiveExperiences {}
 
 const ReflexiveExperiences = (props: IReflexiveExperiences) => {
@@ -32,7 +34,7 @@ const ReflexiveExperiences = (props: IReflexiveExperiences) => {
     >
       <Grid item xs={5}>
         <img
-          src="https://miro.medium.com/max/1200/1*HEoLBLidT2u4mhJ0oiDgig.png"
+          src={`${fotoEscritorio}`}
           alt="happy person"
           height="100%"
           width="100%"
@@ -50,14 +52,15 @@ const ReflexiveExperiences = (props: IReflexiveExperiences) => {
       >
         <Grid item>
           <Typography variant="h4" align="left" style={{ fontWeight: "bold" }}>
-            Lorem ipsun buscando le afalksd jfskjfaldkfj k
+            A lo largo de 10 años de trabajo en transformación personal y
+            organizacional, en MartaOlga he desarrollado una metodología llamada
+            Experiencias Reflexivas.
           </Typography>
         </Grid>
         <Grid item>
           <Typography variant="body1" align="left">
-            Lorem ipsum, or lipsum as it is sometimes known, is dummy text used
-            in laying out print, graphic or web designs. The passage is
-            attributed to an unknown ...
+            Son sesiones de discernimiento en las que se orienta un proceso de
+            introspección por medio de diferentes módulos temáticos.
           </Typography>
         </Grid>
         <Grid item container justifyContent="flex-start">
