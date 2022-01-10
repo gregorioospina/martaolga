@@ -9,6 +9,7 @@ import {
 } from "@material-ui/core";
 import { useHistory, useLocation } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import logo from "../images/LogoHeader.png";
 
 const HEIGHT = 100;
 const MOBILE_HEIGHT = 55;
@@ -52,6 +53,9 @@ const MenuAppbar = (props: IAppbar) => {
         flexGrow: 0,
         padding: "0px !important",
       },
+      logoButton: {
+        cursor: "pointer",
+      },
     })
   );
   const classes = useStyles();
@@ -93,8 +97,13 @@ const MenuAppbar = (props: IAppbar) => {
             <Typography>Experiencia</Typography>
           </Button>
         </Grid>
-        <Grid item xs={2}>
-          <Button></Button>
+        <Grid item xs={2} style={{ padding: 0 }}>
+          <img
+            src={logo}
+            height={HEIGHT * 0.7}
+            alt="logo"
+            className={classes.logoButton}
+          />
         </Grid>
         <Grid item className={classes.griditem}>
           <Button

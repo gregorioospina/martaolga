@@ -73,7 +73,7 @@ const Programs = (props: IPrograms) => {
         style={{
           marginTop: 30,
           padding: "100px 40px",
-          paddingTop: 0,
+          paddingTop: 70,
           backgroundImage: `url(${backgroundImage})`,
           backgroundPosition: "center",
           backgroundSize: "contain",

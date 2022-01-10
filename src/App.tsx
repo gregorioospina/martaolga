@@ -17,6 +17,8 @@ import p1_icon from "./pages/Programs/images/P1/iconos programas-01.svg";
 import BlogsMenu from "./pages/Blog/components/BlogsMenu";
 import Blog from "./pages/Blog/Blog";
 import Methodology from "./pages/Methodology/Methodology";
+import ContactPage from "./pages/Contact/ContactPage";
+import Experience from "./pages/Experience/Experience";
 
 const programs: IProgramDetail[] = [
   {
@@ -211,13 +213,14 @@ function App() {
             <Route exact path="/martaolga" component={AboutMe} />
             <Route exact path="/programas" component={Programs} />
             <Route exact path="/metodologia" component={Methodology} />
+            <Route exact path="/experiencia" component={Experience} />
             <Route
               exact
               path="/programas/&:programindex"
               component={ProgramDetail}
             />
             <Route exact path="/blog" component={Blog} />
-            <Route exact path="/contacto" component={Contact} />
+            <Route exact path="/contacto" component={ContactPage} />
           </Switch>
           <Footer />
         </div>

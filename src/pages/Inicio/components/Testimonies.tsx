@@ -14,11 +14,50 @@ export interface ITestimony {
   testimony: string;
 }
 
+const testimonies: ITestimony[] = [
+  {
+    image: "",
+    name: "Carolina Rojas - Cenit",
+    testimony: `"El Programa Ser Etico es una invitación a
+conectarnos con nuestro Ser y esmerarnos
+por vivir cada día la mejor versión de
+nosotros mismos. Nos invita al respeto
+propio y al de los demás, desde el lugar más
+puro que puede existir, el amor."`,
+  },
+  {
+    image: "",
+    name: `Juan Gabriel Cendales - Gerente General, Clínica las Américas`,
+    testimony: `"Después de dos años de haber
+implementado los programas de Marta
+Olga, tenemos más conciencia para reflejar
+la manera de cómo debemos relacionarnos
+con una mayor calidad humana. Junto a
+ella, hemos capacitado a más de 600
+personas con unos excelentes resultados. El
+impacto organizacional es evidente tapto
+interna como externamente. No dudo en
+recomendar este programa que sin duda le
+agrega valor a la organización."`,
+  },
+  {
+    image: "",
+    name: "Ibeth Rengifo - Christus Sinergia Salud",
+    testimony: `"Además de ser un proceso formativo,
+definitivamente también fue un proceso de
+transformación de nuestra manera de
+pensar para impulsarnos a maneras
+diferentes de actuar. Eso fue lo que vivimos
+los más de 297 líderes de la organización
+junto a Marta Olga. 100% de satisfacción."`,
+  },
+];
+
 interface ITestimonies {
   testimonies: ITestimony[];
 }
 
-const Testimonies = ({ testimonies }: ITestimonies) => {
+const Testimonies = (props: ITestimonies) => {
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       root: {
@@ -103,11 +142,13 @@ const TestimonyCard = ({ image, name, testimony }: ITestimonyCard) => {
   return (
     <Grid item container xs={3} className={classes.root} direction="column">
       <Avatar src={image} className={classes.avatar}></Avatar>
-      <Grid item style={{ padding: 10 }}>
-        <Typography>{testimony}</Typography>
-      </Grid>
-      <Grid item>
-        <Typography variant="overline">{name}</Typography>
+      <Grid item container direction="column" justifyContent="center">
+        <Grid item style={{ padding: 10 }}>
+          <Typography>{testimony}</Typography>
+        </Grid>
+        <Grid item>
+          <Typography variant="overline">{name}</Typography>
+        </Grid>
       </Grid>
     </Grid>
   );
