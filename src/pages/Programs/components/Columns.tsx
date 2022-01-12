@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 interface IColumns {
   column1: string;
   column2: string;
+  color: string;
 }
 
 const Columns = (props: IColumns) => {
@@ -16,7 +17,7 @@ const Columns = (props: IColumns) => {
         item
         md={6}
         xs={12}
-        style={{ backgroundColor: "#fff8eb", padding: 30 }}
+        style={{ backgroundColor: `${props.color}1a`, padding: 30 }}
       >
         {props.column2}
       </Grid>

@@ -7,6 +7,8 @@ import {
   makeStyles,
   Theme,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@material-ui/core";
 import React, { useEffect, useMemo, useState } from "react";
 import Contact from "../Contact/Contact";
@@ -47,6 +49,9 @@ interface ISingleExperience {
 interface IExperience {}
 
 const Experience = (props: IExperience) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   const experiences = useExperiences();
 
   const useStyles = makeStyles((theme: Theme) =>
@@ -102,10 +107,10 @@ const Experience = (props: IExperience) => {
       <Grid container justifyContent="center" className={classes.root}>
         <Grid item container direction="column" style={{ maxWidth: 900 }}>
           {experiencesToRender[0].map((ex) => (
-            <PictureExperience classes={classes} ex={ex} />
+            <PictureExperience classes={classes} ex={ex} isMobile={isMobile} />
           ))}
           {experiencesToRender[1].map((ex) => (
-            <PictureExperience classes={classes} ex={ex} />
+            <PictureExperience classes={classes} ex={ex} isMobile={isMobile} />
           ))}
           <Grid item container className={classes.picturecard}>
             <List>
@@ -139,7 +144,7 @@ const Experience = (props: IExperience) => {
 };
 export default Experience;
 
-const PictureExperience = ({ classes, ex }: any) => {
+const PictureExperience = ({ classes, ex, isMobile }: any) => {
   return (
     <Grid
       item
@@ -147,32 +152,74 @@ const PictureExperience = ({ classes, ex }: any) => {
       justifyContent="space-evenly"
       className={classes.picturecard}
     >
-      <Grid item xs={3} container alignItems="center">
-        <img
-          src={ex.image ?? ""}
-          style={{ maxWidth: "100%" }}
-          alt="companylogo"
-        />
-      </Grid>
-      <Grid item xs={7} container direction="column">
-        <Grid item style={{ padding: 16 }}>
-          <Typography variant="h4" align="left" style={{ fontWeight: "bold" }}>
-            {ex.name}
-          </Typography>
-        </Grid>
-        <Grid item>
-          <List>
-            {ex.description.map((d: string) => (
-              <ListItem>
-                <ListItemText primary={d} />
-              </ListItem>
-            ))}
-          </List>
-        </Grid>
-        <Grid item>
-          <Typography variant="overline">{ex.year}</Typography>
-        </Grid>
-      </Grid>
+      {" "}
+      {isMobile ? (
+        <React.Fragment>
+          <Grid item xs={12} container alignItems="center">
+            <img
+              src={ex.image ?? ""}
+              style={{ maxWidth: "100%", maxHeight: isMobile ? 90 : "" }}
+              alt="companylogo"
+            />
+          </Grid>
+          <Grid item style={{ padding: 16 }} xs={12}>
+            <Typography
+              variant={isMobile ? "h6" : "h4"}
+              align="left"
+              style={{ fontWeight: "bold" }}
+            >
+              {ex.name}
+            </Typography>
+          </Grid>
+          <Grid item xs={12} container direction="column">
+            <Grid item>
+              <List>
+                {ex.description.map((d: string) => (
+                  <ListItem>
+                    <ListItemText primary={d} />
+                  </ListItem>
+                ))}
+              </List>
+            </Grid>
+            <Grid item>
+              <Typography variant="overline">{ex.year}</Typography>
+            </Grid>
+          </Grid>
+        </React.Fragment>
+      ) : (
+        <React.Fragment>
+          <Grid item xs={3} container alignItems="center">
+            <img
+              src={ex.image ?? ""}
+              style={{ maxWidth: "100%" }}
+              alt="companylogo"
+            />
+          </Grid>
+          <Grid item xs={7} container direction="column">
+            <Grid item style={{ padding: 16 }}>
+              <Typography
+                variant="h4"
+                align="left"
+                style={{ fontWeight: "bold" }}
+              >
+                {ex.name}
+              </Typography>
+            </Grid>
+            <Grid item>
+              <List>
+                {ex.description.map((d: string) => (
+                  <ListItem>
+                    <ListItemText primary={d} />
+                  </ListItem>
+                ))}
+              </List>
+            </Grid>
+            <Grid item>
+              <Typography variant="overline">{ex.year}</Typography>
+            </Grid>
+          </Grid>
+        </React.Fragment>
+      )}
     </Grid>
   );
 };

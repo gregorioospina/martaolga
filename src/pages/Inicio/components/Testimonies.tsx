@@ -5,6 +5,8 @@ import {
   Grid,
   Avatar,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 
@@ -58,6 +60,9 @@ interface ITestimonies {
 }
 
 const Testimonies = (props: ITestimonies) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       root: {
@@ -100,12 +105,18 @@ const Testimonies = (props: ITestimonies) => {
       <Grid
         item
         container
-        justifyContent="space-evenly"
+        justifyContent={isMobile ? "flex-start" : "space-evenly"}
+        wrap="nowrap"
         xs={12}
-        style={{ marginTop: 80 }}
+        style={{
+          marginTop: isMobile ? 30 : 80,
+          overflowX: isMobile ? "auto" : undefined,
+          paddingLeft: isMobile ? 40 : "",
+          paddingBottom: isMobile ? 20 : "",
+        }}
       >
         {testimonies.map((p) => {
-          return <TestimonyCard {...p} />;
+          return <TestimonyCard {...p} isMobile={isMobile} />;
         })}
       </Grid>
     </Grid>
@@ -116,9 +127,15 @@ interface ITestimonyCard {
   image: string;
   name: string;
   testimony: string;
+  isMobile: boolean;
 }
 
-const TestimonyCard = ({ image, name, testimony }: ITestimonyCard) => {
+const TestimonyCard = ({
+  image,
+  name,
+  testimony,
+  isMobile,
+}: ITestimonyCard) => {
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       root: {
@@ -126,6 +143,9 @@ const TestimonyCard = ({ image, name, testimony }: ITestimonyCard) => {
         boxShadow: "1pt 1pt 5px -1px #00000038",
         backgroundColor: "white",
         minHeight: 250,
+        maxHeight: "45vh",
+        minWidth: isMobile ? "86%" : "",
+        marginRight: isMobile ? 15 : "",
       },
       avatar: {
         marginTop: -50,
@@ -140,13 +160,24 @@ const TestimonyCard = ({ image, name, testimony }: ITestimonyCard) => {
   const classes = useStyles();
 
   return (
-    <Grid item container xs={3} className={classes.root} direction="column">
-      <Avatar src={image} className={classes.avatar}></Avatar>
-      <Grid item container direction="column" justifyContent="center">
+    <Grid
+      item
+      container
+      xs={isMobile ? 8 : 3}
+      className={classes.root}
+      direction="column"
+      wrap="nowrap"
+    >
+      {!isMobile && <Avatar src={image} className={classes.avatar}></Avatar>}
+      <Grid
+        item
+        container
+        direction="column"
+        justifyContent="center"
+        wrap="nowrap"
+      >
         <Grid item style={{ padding: 10 }}>
           <Typography>{testimony}</Typography>
-        </Grid>
-        <Grid item>
           <Typography variant="overline">{name}</Typography>
         </Grid>
       </Grid>

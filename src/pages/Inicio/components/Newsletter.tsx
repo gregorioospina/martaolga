@@ -6,12 +6,17 @@ import {
   Typography,
   OutlinedInput,
   Button,
+  useMediaQuery,
+  useTheme,
 } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 
 interface INewsletter {}
 
 const Newsletter = (props: INewsletter) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       root: {
@@ -56,31 +61,34 @@ const Newsletter = (props: INewsletter) => {
   const classes = useStyles();
 
   return (
-    <Grid item container className={classes.root}>
-      <Grid item xs={3}></Grid>
+    <Grid item container justify="center" className={classes.root}>
+      {!isMobile && <Grid item xs={3}></Grid>}
       <Grid
         item
-        xs={9}
+        xs={isMobile ? 11 : 9}
         container
         alignContent="center"
-        justifyContent="flex-start"
+        justifyContent={isMobile ? "center" : "flex-start"}
       >
         <Grid
           item
-          xs={10}
+          xs={isMobile ? 12 : 10}
           container
           justifyContent="center"
           direction="column"
           spacing={3}
         >
           <Grid item>
-            <Typography variant="h4" style={{ fontWeight: "bold" }}>
+            <Typography
+              variant={isMobile ? "h5" : "h4"}
+              style={{ fontWeight: "bold" }}
+            >
               Recibe en tu correo el mejor contenido para transformar tu vida y
               potenciar tu empresa.
             </Typography>
           </Grid>
           <Grid item>
-            <Typography variant="subtitle1">
+            <Typography variant={isMobile ? "body2" : "subtitle1"}>
               Subscríbete a mi boletín informativo y entérate de los próximos
               programas.
             </Typography>

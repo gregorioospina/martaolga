@@ -4,6 +4,8 @@ import {
   makeStyles,
   Theme,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import Title from "../AboutMe/components/Title";
@@ -32,6 +34,9 @@ const enterprisePrograms = [
 interface IPrograms {}
 
 const Programs = (props: IPrograms) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       root: {
@@ -72,7 +77,7 @@ const Programs = (props: IPrograms) => {
         direction="column"
         style={{
           marginTop: 30,
-          padding: "100px 40px",
+          padding: isMobile ? "100px 10px" : "100px 40px",
           paddingTop: 70,
           backgroundImage: `url(${backgroundImage})`,
           backgroundPosition: "center",
@@ -80,31 +85,8 @@ const Programs = (props: IPrograms) => {
           backgroundRepeat: "repeat-y",
         }}
       >
-        {/* <Grid item>
-        <Title title="Programas Online" />
-      </Grid> */}
         <Grid item container justifyContent="center" style={{ marginTop: 20 }}>
           <OnlinePrograms />
-          {/* {onlinePrograms.map((p) => (
-          <Grid item xs={10} sm={4} container alignItems="center">
-          <Grid
-          item
-              container
-              alignItems="center"
-              justifyContent="center"
-              className={classes.programCard}
-              >
-              <Grid item>
-              <img src={p.image} alt={p.name} height="200px" width="200px" />
-              </Grid>
-              <Grid item>
-              <Typography variant="h6" className={classes.programName}>
-              {p.name}
-              </Typography>
-              </Grid>
-              </Grid>
-              </Grid>
-            ))} */}
         </Grid>
         <Grid item style={{ marginTop: 30 }}>
           <Title title="Programas para Empresas" />

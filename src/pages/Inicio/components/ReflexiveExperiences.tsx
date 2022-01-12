@@ -5,6 +5,8 @@ import {
   Grid,
   Typography,
   Button,
+  useMediaQuery,
+  useTheme,
 } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 
@@ -13,9 +15,12 @@ import fotoEscritorio from "../images/fotos-inicio-16.png";
 interface IReflexiveExperiences {}
 
 const ReflexiveExperiences = (props: IReflexiveExperiences) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-      banner: { height: "60vh", marginTop: 25 },
+      banner: { minHeight: "50vh", marginTop: 25 },
       button: {
         backgroundColor: theme.palette.primary.main,
         color: theme.palette.primary.contrastText,
@@ -32,7 +37,11 @@ const ReflexiveExperiences = (props: IReflexiveExperiences) => {
       justifyContent="space-between"
       className={classes.banner}
     >
-      <Grid item xs={5}>
+      <Grid
+        item
+        xs={isMobile ? 12 : 5}
+        style={{ height: isMobile ? window.innerHeight / 4 : "" }}
+      >
         <img
           src={`${fotoEscritorio}`}
           alt="happy person"
@@ -48,17 +57,24 @@ const ReflexiveExperiences = (props: IReflexiveExperiences) => {
         direction="column"
         justifyContent="center"
         spacing={4}
-        style={{ paddingLeft: 20 }}
+        style={{
+          paddingLeft: isMobile ? 5 : 20,
+          paddingTop: isMobile ? 20 : "",
+        }}
       >
         <Grid item>
-          <Typography variant="h4" align="left" style={{ fontWeight: "bold" }}>
+          <Typography
+            variant={isMobile ? "h6" : "h4"}
+            align="left"
+            style={{ fontWeight: "bold" }}
+          >
             A lo largo de 10 años de trabajo en transformación personal y
             organizacional, en MartaOlga he desarrollado una metodología llamada
             Experiencias Reflexivas.
           </Typography>
         </Grid>
         <Grid item>
-          <Typography variant="body1" align="left">
+          <Typography variant={isMobile ? "body2" : "body1"} align="left">
             Son sesiones de discernimiento en las que se orienta un proceso de
             introspección por medio de diferentes módulos temáticos.
           </Typography>

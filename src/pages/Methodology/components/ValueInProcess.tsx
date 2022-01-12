@@ -5,6 +5,8 @@ import {
   Grid,
   Typography,
   Button,
+  useMediaQuery,
+  useTheme,
 } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 
@@ -23,9 +25,12 @@ const ValueInProcess = ({
   title,
   button,
 }: IValueInProcess) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-      banner: { height: "35vh" },
+      banner: { minHeight: window.innerHeight * 0.35 },
       button: {
         backgroundColor: theme.palette.primary.main,
         color: theme.palette.primary.contrastText,
@@ -43,11 +48,17 @@ const ValueInProcess = ({
       className={classes.banner}
     >
       {!left && (
-        <Grid item xs={5}>
+        <Grid item xs={isMobile ? 12 : 5}>
           <img
             src={img}
             alt="happy person"
-            style={{ objectFit: "cover", width: "100%", maxHeight: "35vh" }}
+            style={{
+              objectFit: "cover",
+              width: "100%",
+              maxHeight: isMobile
+                ? window.innerHeight * 0.15
+                : window.innerHeight * 0.35,
+            }}
           ></img>
         </Grid>
       )}
@@ -57,13 +68,13 @@ const ValueInProcess = ({
         md={7}
         direction="column"
         justifyContent="center"
-        spacing={4}
-        style={{ paddingLeft: 20, height: "100%" }}
+        spacing={isMobile ? 0 : 4}
+        style={{ paddingLeft: 20, height: "100%", padding: isMobile ? 10 : "" }}
       >
         {title && (
           <Grid item>
             <Typography
-              variant="h4"
+              variant={isMobile ? "h6" : "h4"}
               align="left"
               style={{ fontWeight: "bold" }}
             >
@@ -72,7 +83,7 @@ const ValueInProcess = ({
           </Grid>
         )}
         <Grid item>
-          <Typography variant="body1" align="left">
+          <Typography variant={isMobile ? "body2" : "body1"} align="left">
             {message}
           </Typography>
         </Grid>

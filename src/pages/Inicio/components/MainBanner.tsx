@@ -6,6 +6,8 @@ import {
   makeStyles,
   Theme,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@material-ui/core";
 import { ArrowLeft, ArrowRight } from "@material-ui/icons";
 import React, { useState, useEffect, useRef } from "react";
@@ -44,6 +46,10 @@ interface IMainBanner {}
 
 const MainBanner = (props: IMainBanner) => {
   const [slide, setSlide] = useState<number>(0);
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   const prevSlideRef = useRef<number | undefined>(undefined);
 
   const handleClick = (mod: number) => {
@@ -102,14 +108,16 @@ const MainBanner = (props: IMainBanner) => {
       leftButton: {
         position: "absolute",
         top: "50%",
-        left: 10,
+        left: isMobile ? 0 : 10,
+        padding: isMobile ? 0 : "",
         transform: "translate(0, -50%)",
         // color,
       },
       rightButton: {
         position: "absolute",
+        padding: isMobile ? 0 : "",
         top: "50%",
-        right: 10,
+        right: isMobile ? 0 : 10,
         transform: "translate(0, -50%)",
         // color,
       },
@@ -138,10 +146,16 @@ const MainBanner = (props: IMainBanner) => {
             backgroundImage: `url(${s.image})`,
           }}
         >
-          <Grid container item xs={6} direction="column" spacing={2}>
+          <Grid
+            container
+            item
+            xs={isMobile ? 12 : 6}
+            direction="column"
+            spacing={2}
+          >
             <Grid item>
               <Typography
-                variant="h4"
+                variant={isMobile ? "h5" : "h4"}
                 align="left"
                 style={{ fontWeight: "bold" }}
               >
@@ -149,7 +163,7 @@ const MainBanner = (props: IMainBanner) => {
               </Typography>
             </Grid>
             <Grid item>
-              <Typography variant="body1" align="left">
+              <Typography variant={isMobile ? "body2" : "body1"} align="left">
                 {s.body}
               </Typography>
             </Grid>

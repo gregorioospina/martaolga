@@ -6,12 +6,17 @@ import {
   TextField,
   Theme,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 
 interface IContact {}
 
 const Contact = (props: IContact) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       input: {
@@ -31,19 +36,20 @@ const Contact = (props: IContact) => {
       style={{
         paddingTop: 30,
         paddingLeft: 20,
+        padding: isMobile ? 10 : "",
         paddingBottom: 20,
         backgroundColor: "white",
       }}
     >
-      <Grid item xs={6} container>
-        <Grid item>
-          <Typography variant="h4">
+      <Grid item xs={isMobile ? 12 : 6} container>
+        <Grid item style={{ paddingTop: isMobile ? 10 : "" }}>
+          <Typography variant={isMobile ? "h5" : "h4"}>
             Quieres hablar conmigo y obtener mas hablar conmigo y obtener mas
             hablar conmigo y obtener mas hablar conmigo y obtener mas
           </Typography>
         </Grid>
-        <Grid item>
-          <Typography variant="body1">
+        <Grid item style={{ paddingTop: isMobile ? 10 : "" }}>
+          <Typography variant={isMobile ? "body2" : "body1"}>
             Quieres hablar conmigo y obtener mas hablar conmigo y obtener mas
             hablar conmigo y obtener mas hablar conmigo y obtener mas
           </Typography>
@@ -54,7 +60,7 @@ const Contact = (props: IContact) => {
       </Grid>
       <Grid
         item
-        xs={6}
+        xs={isMobile ? 12 : 6}
         container
         justifyContent="flex-start"
         alignContent="center"

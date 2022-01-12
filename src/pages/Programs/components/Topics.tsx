@@ -64,7 +64,10 @@ const Topics = (props: ITopics) => {
               </Typography>
               {t.subtopics
                 ? t.subtopics.map((st) => (
-                    <Typography align="left">{`- ${st}`}</Typography>
+                    <Typography
+                      align="left"
+                      style={{ whiteSpace: "break-spaces" }}
+                    >{`- ${st}`}</Typography>
                   ))
                 : null}
             </div>

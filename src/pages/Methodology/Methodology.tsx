@@ -4,6 +4,8 @@ import {
   makeStyles,
   Theme,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import MessageCarousel from "../Inicio/components/MessageCarousel";
@@ -20,13 +22,16 @@ import Contact from "../Contact/Contact";
 interface IMethodology {}
 
 const Methodology = (props: IMethodology) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       orangeDiv: {
         backgroundColor: theme.palette.primary.main,
         color: "white",
-        minHeight: 400,
-        padding: 20,
+        minHeight: window.innerHeight * 0.35,
+        padding: isMobile ? 8 : 20,
       },
     })
   );
@@ -52,7 +57,7 @@ const Methodology = (props: IMethodology) => {
         className={classes.orangeDiv}
       >
         <Typography
-          variant="h4"
+          variant={isMobile ? "h6" : "h4"}
           paragraph
           style={{ whiteSpace: "pre-wrap", fontWeight: "bold" }}
         >
@@ -61,8 +66,8 @@ const Methodology = (props: IMethodology) => {
           percibir, pensar e interpretar.
         </Typography>
         <Typography
-          variant="h6"
-          style={{ whiteSpace: "pre-wrap", maxWidth: "80%" }}
+          variant={isMobile ? "body1" : "h6"}
+          style={{ whiteSpace: "pre-wrap", maxWidth: isMobile ? "90%" : "80%" }}
         >
           Esto con el fin de liberar, reinterpretar, sanar y finalmente elegir.
           El valor del proceso se encuentra en tu capacidad natural para

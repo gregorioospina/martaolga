@@ -6,6 +6,8 @@ import {
   Typography,
   Button,
   IconButton,
+  useMediaQuery,
+  useTheme,
 } from "@material-ui/core";
 import React, { useState, useEffect, useRef } from "react";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
@@ -18,11 +20,11 @@ export interface IStep {
 
 const ssteps: IStep[] = [
   {
-    title: "Que es transformar",
-    body: "asDFLas falsThe page will reload if you make edits. You will also see any lint errors in the console.",
+    title: "¿Quisieras vivir una verdadera transformación personal?",
+    body: "Transformarte en el Ser que quieres ser, implica despertar conciencia, descubrir creencias, reinterpretar percepciones, soltar las cargas emocionales del pasado y dar la bienvenida a nuevas posibilidades. Es un trabajo personal, indelegable y no da espera.",
   },
   {
-    title: "Builds the app for production",
+    title: "¿Quisieras promover una verdadera transformación en tu empresa?",
     body: "to the copied scripts so you can tweak them. At this point you’re on your own.",
   },
   {
@@ -47,6 +49,9 @@ const MessageCarousel = ({
   steps,
 }: IMessageCarousel) => {
   const [step, setStep] = useState<number>(0);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   const prevStepRef = useRef<number | undefined>(undefined);
 
   const handleClick = (mod: number) => {
@@ -99,14 +104,14 @@ const MessageCarousel = ({
       leftButton: {
         position: "absolute",
         top: "50%",
-        left: 10,
+        left: isMobile ? 0 : 10,
         transform: "translate(0, -50%)",
         color,
       },
       rightButton: {
         position: "absolute",
         top: "50%",
-        right: 10,
+        right: isMobile ? 0 : 10,
         transform: "translate(0, -50%)",
         color,
       },
@@ -126,7 +131,8 @@ const MessageCarousel = ({
       {ssteps.map((s, i) => (
         <Grid
           item
-          xs={8}
+          xs={isMobile ? 10 : 8}
+          style={{ width: isMobile ? "83%" : "" }}
           className={`${
             step === i ? "fadein" : prevStepRef.current === i ? "fadeout" : ""
           } ${classes.step}`}

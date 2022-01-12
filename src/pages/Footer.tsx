@@ -6,6 +6,8 @@ import {
   makeStyles,
   Theme,
   Typography,
+  useTheme,
+  useMediaQuery,
 } from "@material-ui/core";
 import { Facebook, Instagram, Mail, Phone, WhatsApp } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
@@ -15,14 +17,17 @@ interface IFooter {}
 
 const Footer = (props: IFooter) => {
   const history = useHistory();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       root: {
-        height: "30vh",
+        paddingTop: isMobile ? 30 : "",
+        height: isMobile ? "" : "30vh",
       },
       button: {
-        height: 100,
+        height: isMobile ? 35 : 100,
         textTransform: "none",
         "&:hover": {
           background: "#f7f7f7",
@@ -30,7 +35,7 @@ const Footer = (props: IFooter) => {
         },
       },
       griditem: {
-        maxWidth: "10%",
+        maxWidth: isMobile ? "" : "10%",
         flexBasis: "10%",
         flexGrow: 0,
         padding: "0px !important",
@@ -51,7 +56,13 @@ const Footer = (props: IFooter) => {
 
   return (
     <Grid item container direction="column" className={classes.root}>
-      <Grid item container justifyContent="center">
+      <Grid
+        item
+        container
+        justifyContent="center"
+        alignContent={isMobile ? "center" : "center"}
+        direction={isMobile ? "column" : "row"}
+      >
         <Grid item className={classes.griditem}>
           <Button className={classes.button} onClick={() => handleClick("")}>
             <Typography>MartaOlga</Typography>
