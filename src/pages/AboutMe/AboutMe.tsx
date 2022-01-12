@@ -2,6 +2,7 @@ import { Grid, Typography, useMediaQuery, useTheme } from "@material-ui/core";
 import React from "react";
 import Contact from "../Contact/Contact";
 import OnlinePrograms from "../Inicio/components/OnlinePrograms";
+import { MOBILE_HEIGHT, HEIGHT } from "../MenuAppbar";
 import FormationPillar, {
   IFormationPillar,
 } from "./components/FormationPillar";
@@ -51,7 +52,10 @@ const AboutMe = (props: IAboutMe) => {
       <Grid
         container
         direction="column"
-        style={{ marginTop: 100, backgroundColor: "white" }}
+        style={{
+          marginTop: isMobile ? MOBILE_HEIGHT : HEIGHT,
+          backgroundColor: "white",
+        }}
       >
         <Grid item style={{ position: "relative" }}>
           <img

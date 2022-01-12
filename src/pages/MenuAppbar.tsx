@@ -3,22 +3,35 @@ import {
   Button,
   createStyles,
   Grid,
+  IconButton,
+  List,
+  ListItem,
+  ListItemText,
   makeStyles,
+  SwipeableDrawer,
   Theme,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@material-ui/core";
 import { useHistory, useLocation } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import logo from "../images/LogoHeader.png";
+import { Menu } from "@material-ui/icons";
 
-const HEIGHT = 100;
-const MOBILE_HEIGHT = 55;
+export const HEIGHT = 100;
+export const MOBILE_HEIGHT = 45;
 
 interface IAppbar {}
 
 const MenuAppbar = (props: IAppbar) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   const history = useHistory();
   const location = useLocation();
+
+  const [open, setOpen] = useState<boolean>(false);
 
   useEffect(() => {
     window.scrollTo({
@@ -38,6 +51,13 @@ const MenuAppbar = (props: IAppbar) => {
         backgroundColor: "white",
         marginBottom: -15,
         boxShadow: "0pt 1pt 3px -1px #00000030",
+      },
+      mobileAppbar: {
+        height: MOBILE_HEIGHT,
+        backgroundColor: "white",
+        marginBottom: -15,
+        boxShadow: "0pt 1pt 3px -1px #00000030",
+        // position: "relative",
       },
       button: {
         height: HEIGHT - 15,
@@ -61,12 +81,69 @@ const MenuAppbar = (props: IAppbar) => {
   const classes = useStyles();
 
   const handleClick = (pathname: string) => {
+    setOpen(false);
     history.push({
       pathname,
     });
   };
 
-  return (
+  const mobileRender = () => {
+    return (
+      <AppBar className={classes.mobileAppbar}>
+        <Grid container justify="space-between" style={{ height: "100%" }}>
+          <Grid item xs={2} container alignContent="center">
+            <IconButton
+              style={{ padding: 4 }}
+              onClick={() => setOpen((p) => !p)}
+            >
+              <Menu color="primary" />
+            </IconButton>
+          </Grid>
+          <Grid
+            item
+            container
+            xs={4}
+            alignContent="center"
+            justifyContent="flex-end"
+            style={{ paddingRight: 5 }}
+          >
+            <img src={logo} height={MOBILE_HEIGHT - 8} alt="logo" />
+          </Grid>
+        </Grid>
+        <SwipeableDrawer
+          anchor={"left"}
+          open={open}
+          onClose={() => setOpen(false)}
+          onOpen={() => setOpen(true)}
+        >
+          <List>
+            <ListItem button onClick={() => handleClick("/")}>
+              <ListItemText primary="MartaOlga" />
+            </ListItem>
+            <ListItem button onClick={() => handleClick("programas")}>
+              <ListItemText primary="Programas" />
+            </ListItem>
+            <ListItem button onClick={() => handleClick("experiencia")}>
+              <ListItemText primary="Experiencia" />
+            </ListItem>
+            <ListItem button onClick={() => handleClick("metodologia")}>
+              <ListItemText primary="Metodología" />
+            </ListItem>
+            <ListItem button onClick={() => handleClick("blog")}>
+              <ListItemText primary="Blog" />
+            </ListItem>
+            <ListItem button onClick={() => handleClick("contacto")}>
+              <ListItemText primary="Contáctame" />
+            </ListItem>
+          </List>
+        </SwipeableDrawer>
+      </AppBar>
+    );
+  };
+
+  return isMobile ? (
+    mobileRender()
+  ) : (
     <AppBar className={classes.appbar}>
       <div className={classes.yellowline}></div>
       <Grid

@@ -6,19 +6,25 @@ import {
   makeStyles,
   Theme,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
+import { MOBILE_HEIGHT, HEIGHT } from "../../MenuAppbar";
 
 import backgroundImage from "../images/fotosmetodologia-09.png";
 
 interface IMainBanner {}
 
 const MainBanner = (props: IMainBanner) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       banner: {
         height: "60vh",
-        marginTop: 100,
+        marginTop: isMobile ? MOBILE_HEIGHT : HEIGHT,
         backgroundImage: `url(${backgroundImage})`,
         backgroundPosition: "center",
         backgroundSize: "cover",

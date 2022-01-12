@@ -4,6 +4,8 @@ import {
   makeStyles,
   Theme,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import BlogEntryCard from "./BlogEntryCard";
@@ -11,6 +13,7 @@ import useBlogs from "../hooks/useBlogs";
 
 import backgroundImage from "../images/munecos-fondo.png";
 import Contact from "../../Contact/Contact";
+import { HEIGHT, MOBILE_HEIGHT } from "../../MenuAppbar";
 
 export interface IBlog {
   TITULO?: string;
@@ -28,10 +31,13 @@ interface IBlogsMenu {
 }
 
 const BlogsMenu = ({ blogs, setBlogIndex }: IBlogsMenu) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       root: {
-        marginTop: 100,
+        marginTop: isMobile ? MOBILE_HEIGHT : HEIGHT,
         paddingTop: 20,
         backgroundImage: `url(${backgroundImage})`,
         backgroundPosition: "center",

@@ -38,6 +38,7 @@ import p8_pillars from "../../pages/Programs/images/P8/afterColumnImage.png";
 import p8_icon from "../../pages/Programs/images/P8/iconos programas-08.svg";
 
 import { useLocation } from "react-router-dom";
+import { MOBILE_HEIGHT, HEIGHT } from "../MenuAppbar";
 
 const programs = {
   "001": {
@@ -1029,7 +1030,12 @@ const ProgramDetail = (_props: IProgramDetail) => {
   }, [location]);
 
   return !program ? null : (
-    <Grid container style={{ marginTop: 100 }}>
+    <Grid
+      container
+      style={{
+        marginTop: isMobile ? MOBILE_HEIGHT : HEIGHT,
+      }}
+    >
       <Header
         icon={program.icon}
         subtitle={program.subtitle}

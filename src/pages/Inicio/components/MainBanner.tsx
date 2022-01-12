@@ -12,6 +12,7 @@ import {
 import { ArrowLeft, ArrowRight } from "@material-ui/icons";
 import React, { useState, useEffect, useRef } from "react";
 import { useHistory } from "react-router";
+import { MOBILE_HEIGHT, HEIGHT } from "../../MenuAppbar";
 
 import banner1 from "../images/banner-inicio-07.png";
 import banner2 from "../images/banner-inicio-08.png";
@@ -67,7 +68,7 @@ const MainBanner = (props: IMainBanner) => {
     createStyles({
       root: {
         height: "60vh",
-        marginTop: 100,
+        marginTop: isMobile ? MOBILE_HEIGHT : HEIGHT,
         position: "relative",
       },
       banner: {
