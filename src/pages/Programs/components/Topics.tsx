@@ -45,7 +45,7 @@ const Topics = (props: ITopics) => {
 
   const classes = useStyles();
   return (
-    <Grid container direction="column" style={{ padding: 16 }}>
+    <Grid container direction="column" style={{ padding: "8%" }}>
       <Grid item>
         <Title color={props.color} title={"Línea Temática"} />
       </Grid>
@@ -59,7 +59,10 @@ const Topics = (props: ITopics) => {
               {t.subtopics && t.subtopics.length > 0 && (
                 <div className={classes.divider}></div>
               )}
-              <Typography align="left" style={{ marginTop: 10 }}>
+              <Typography
+                align="left"
+                style={{ marginTop: 10, whiteSpace: "break-spaces" }}
+              >
                 {t.description}
               </Typography>
               {t.subtopics

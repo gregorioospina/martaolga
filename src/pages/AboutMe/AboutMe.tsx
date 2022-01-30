@@ -1,7 +1,7 @@
 import { Grid, Typography, useMediaQuery, useTheme } from "@material-ui/core";
 import React from "react";
 import Contact from "../Contact/Contact";
-import OnlinePrograms from "../Inicio/components/OnlinePrograms";
+import OnlinePrograms from "../Programs/OnlinePrograms";
 import { MOBILE_HEIGHT, HEIGHT } from "../MenuAppbar";
 import FormationPillar, {
   IFormationPillar,

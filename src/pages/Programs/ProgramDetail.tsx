@@ -37,6 +37,14 @@ import p8_main from "../../pages/Programs/images/P8/main.png";
 import p8_pillars from "../../pages/Programs/images/P8/afterColumnImage.png";
 import p8_icon from "../../pages/Programs/images/P8/iconos programas-08.svg";
 
+import p9_main from "../../pages/Programs/images/P9/main.png";
+import p9_pillars from "../../pages/Programs/images/P9/afterColumnImage.png";
+import p9_icon from "../../pages/Programs/images/P9/iconos programas-09.svg";
+
+import p10_main from "../../pages/Programs/images/P10/main.png";
+import p10_pillars from "../../pages/Programs/images/P10/afterColumnImage.png";
+import p10_icon from "../../pages/Programs/images/P10/iconos programas-10.svg";
+
 import { useLocation } from "react-router-dom";
 import { MOBILE_HEIGHT, HEIGHT } from "../MenuAppbar";
 
@@ -959,29 +967,267 @@ const programs = {
   },
   "009": {
     id: "005",
-    color: "#802ca3",
+    color: "#a6c400",
     column1: (
       <React.Fragment>
-        <Typography paragraph></Typography>
+        <Typography paragraph>
+          Elegir un camino en entornos turbulentos nos exige despertar
+          conciencia de la esencia de aquello con lo que contamos. En este caso
+          nos invita a reflexionar sobre la diferencia del aporte esperado del
+          management y del liderazgo, es decir: gestión vs influencia.
+        </Typography>
+        <Typography paragraph>
+          El liderazgo lo vamos a trascender de una función, cargo,
+          responsabilidad o nombramiento, a una manera de SER y vamos a respetar
+          el management como una manera de HACER, -basada en herramientas de
+          gestión-.
+        </Typography>
+        <Typography paragraph>
+          El aporte esperado del líder se origina en cuatro responsabilidades
+          fundamentales:
+        </Typography>
         <Typography paragraph></Typography>
       </React.Fragment>
     ),
     column2: (
       <React.Fragment>
-        <Typography paragraph></Typography>
-        <Typography paragraph></Typography>
+        <Typography paragraph>
+          <ol>
+            <li>
+              Mantener viva la VISIÓN: Definida como un PROPÓSITO colectivo,
+              atractivo e inspirador, que une y enfoca a todas las personas de
+              la organización. Incluyente, trascendente, retador, y que active
+              el potencial de todos los que quiere contribuir a lograrlo,
+              dándole vida al concepto de lo nuestro y sentido al trabajo
+              diario.
+            </li>
+            <li>
+              SER REFERENTE: Para que el liderazgo sea ante todo influencia en
+              otros y genere seguidores auténticos, debe brotar de un buen Ser
+              Humano. La idea central es calidad humana semilla de liderazgo.
+            </li>
+            <li>
+              <Typography paragraph>
+                SER REFERENTE: Para que el liderazgo sea ante todo influencia en
+                otros y genere seguidores auténticos, debe brotar de un buen Ser
+                Humano. La idea central es calidad humana semilla de liderazgo.
+              </Typography>
+              <Typography paragraph>
+                Un verdadero líder acepta la responsabilidad de ser REFERENTE:
+                ser la persona que otros miran para validar el camino. Un
+                verdadero líder es referente de humanismo, demuestra con su
+                manera de ser la posibilidad de relacionarnos para generar valor
+                humano, empoderarnos y evolucionar, darle sentido al trabajo y a
+                los logros colectivos y aportarle valor humano a la sociedad.
+              </Typography>
+              <Typography paragraph>
+                Una persona logra ser líder referente porque es consciente de su
+                propio SER y de sus emociones y tiene la humildad de elegir su
+                transformación personal para inspirar desde la evidencia.
+              </Typography>
+            </li>
+            <li>
+              CULTURA / ÉTICA: El líder entiende que la ética y la cultura son
+              el pilar fundamental de la sostenibilidad de la familia, la
+              empresa y la sociedad, sobre todo en entornos turbulentos; por lo
+              tanto, las asume como su principal responsabilidad no delegable.
+              No solo para exigirlas, para volverlas un discurso, sino ante todo
+              para vivirlas y cuidar la identidad ética como garantía de empresa
+              confiable.
+            </li>
+            <li>
+              INTANGIBLES son los “Cómos humanos” (no técnicos) que generan
+              compromiso, pasión, motivación, etc. La base de la influencia y la
+              Autoridad Moral. Los intangibles se manifiestan con la presencia e
+              impactan la emocionalidad y por lo tanto se traducen en motivación
+              para querer pertenecer, participar y aportar.
+            </li>
+          </ol>
+        </Typography>
       </React.Fragment>
     ),
-    icon: p5_icon,
-    photo: p5_main,
+    icon: p9_icon,
+    photo: p9_main,
     afterColumnImage: "",
-    subtitle: "",
-    subtitle2: "",
+    subtitle: "Una oportunidad para TODOS",
+    subtitle2:
+      "La adversidad que impactó el mundo de las organizaciones es hoy la gran oportunidad de repensar el liderazgo organizacional, para lograr responder, de manera exitosa, a la realidad incierta y en permanente transformación que nos reta los caminos conocidos y nos abre a la posibilidad del camino elegido. ",
+    title: "Semillas de liderazgo",
+    topics: [
+      {
+        topic: "Despertar conciencia",
+        description: "",
+        subtopics: [
+          "Observar, percibir, darse cuenta",
+          "Las emociones camino de autoconocimiento",
+          "Sanar el estado emocional",
+          "Producir emociones sanas",
+        ],
+      },
+      {
+        topic: "Transformación personal",
+        description: "",
+        subtopics: [
+          "Transformaciones vs Cambio",
+          "Las 3 grandes preguntas",
+          "El significado de las posibilidades",
+          "El reto la vida cotidiana",
+          "El poder de la visualización",
+          "Los caminos para encontrarlas",
+        ],
+      },
+      {
+        topic: "Vida con propósito, Legado",
+        description: "",
+        subtopics: [
+          "Sentido de la vida",
+          "Futuro elegido",
+          "Actitud de escalador",
+          "Esquema de felicidad",
+          "Las motivaciones",
+          "El Para Qué, el legado",
+        ],
+      },
+      {
+        topic: "Ser Resiliente",
+        description: "",
+        subtopics: [
+          "Adversidad gran maestra",
+          "Aceptar y Asumir",
+          "El poder de los pensamientos",
+          "El poder de la acción",
+        ],
+      },
+      {
+        topic: "Relaciones de Liderazgo",
+        description: "",
+        subtopics: [
+          "Monstruo del NO merecimiento",
+          "Autoestima y amor positivo",
+          "El encuentro con el OTRO",
+          "Practicar la comprensión y la compasión",
+          "Servir / Ser solidario",
+          "Producir entornos emocionales positivos",
+        ],
+      },
+      {
+        topic: "Comunicar para conectar",
+        description: "",
+        subtopics: [
+          " El formato de creencias",
+          "El programa del doble juego",
+          "Nos comunicamos con una imagen emocional",
+          "El peso de las interpretaciones",
+          "El peso de la verdad",
+          "La conexión no se da en la escucha",
+          "El valor de la reflexión y el discernimiento",
+          "Aprender a renunciar",
+        ],
+      },
+      {
+        topic: "Ser Ético para liderar con autoridad moral",
+        description: "",
+        subtopics: [
+          "Ética como manera de ser",
+          "Creencias, Impacto, Consecuencias, Frenos y Antídotos",
+          "Ser Respetuoso",
+          "Ser Responsable",
+          "Ser Honesto",
+          "Ser Confiable",
+          "Ser Coherente",
+          "Ser Íntegro",
+        ],
+      },
+    ],
+    footerImage: "",
+    url: "",
+  },
+  "010": {
+    id: "005",
+    color: "#009f99",
+    column1: (
+      <React.Fragment>
+        <Typography paragraph>
+          El objetivo de este proceso de formación es enfocarnos en comprender
+          el servicio como una expresión de nuestra manera de SER y no sólo como
+          un trabajo o una función basada en protocolos de comportamientos
+          definidos para un cargo. El servicio no se va a interiorizar como una
+          estrategia de sobrevivencia sino como el compromiso de relacionarnos
+          desde el amor incondicional para generar una identidad “humana” de SER
+          para SERVIR.
+        </Typography>
+        <Typography paragraph>
+          Vamos a elevar el nivel de conciencia de que siempre que estamos
+          frente a una persona, estamos frente a una oportunidad de servir; por
+          eso para aprender a servir, para motivarnos a servir no basta tener
+          clientes, pacientes o usuarios sino CALIDAD HUMANA.
+        </Typography>
+        <Typography paragraph>
+          Vamos a interiorizar la importancia de comprender y tratar al cliente
+          como PERSONA, no sólo para llenarle necesidades sino para entregarle,
+          en todos los momentos de su experiencia con nosotros, lo que le
+          permita sentirse mejor, salir enriquecido y quedar con un impacto
+          emocional positivo y memorable.{" "}
+        </Typography>
+      </React.Fragment>
+    ),
+    column2: (
+      <React.Fragment>
+        <Typography paragraph>
+          ¡El servicio, es un compromiso colectivo que nos exige a TODOS!
+          colaborar desde la responsabilidad individual. El servicio es una
+          creación auténtica:
+          <ul>
+            <li>
+              Se teje/construye en todos los detalles de la vida cotidiana.
+              Corre
+            </li>
+            <li>
+              en paralelo a todas las áreas de la cadena de valor. Se inspira en
+            </li>
+            <li>las evidencias de los líderes y jefes.</li>
+          </ul>
+        </Typography>
+        <Typography paragraph>
+          Y finalmente la credibilidad de un proceso de formación, se da cuando
+          el mensaje de los actos, de las personas referentes, es coherente con
+          el mensaje de la estrategia, la exigencia y el contenido de la
+          formación. Sin esto, el avance de los colaboradores -o la
+          consolidación de la estrategia o cultura- es muy lento. Por eso formar
+          para crear cultura es un proceso que incluye a toda la organización.
+        </Typography>
+      </React.Fragment>
+    ),
+    icon: p10_icon,
+    photo: p10_main,
+    afterColumnImage: "",
+    subtitle: "SER para SERVIR. Para valorar y darle sentido a la vida",
+    subtitle2:
+      "Interiorizar el servicio como una manera de Ser para apalancar el direccionamiento estratégico; responde a la necesidad de crear un diferencial incopiable en la experiencia del cliente, el usuario y el intermediario.  Diferencial que nos aseguraría quedar grabados en su memoria por ser la empresa que genera, en cada contacto humano, un impacto emocional que enaltece la propia vida.",
     title: "Transformación Organizacional",
     topics: [
       {
-        topic: "",
-        description: "",
+        topic: "¿Para qué SERVIR?",
+        description:
+          "Es fundamental unir a todas las personas de la organización en una reflexión que genere un significado común sobre la realidad del negocio, la visión, la estratégica de servicio; el contexto, el impacto de la globalización, la competitividad y la competencia.\n\n Es muy importante que todas las personas, independientemente del cargo que ocupen, comprendan que el servicio, el desempeño y la productividad son hoy “como mínimo”, exigencias de sobrevivencia.\n\n Todo lo anterior con la finalidad de que la estrategia de servicio se interiorice y se hagan realidad con los actos de la vida cotidiana, en todos y cada uno de los cargos.\n\n Vamos a comprender que superior a la visión hay una manera de sentir y hacer el trabajo, un sello o una identidad que nace de la calidad del ser que somos y que se llama SERVIR: “la manera de ser y de relacionarnos; la expresión de nuestro compromiso con el “otro”.   Vamos a darnos cuenta de que el servicio auténtico es superior a ayudar, cuidar o atender. Servir no se enfoca solo en satisfacer necesidades sino en aportar valor al otro, para que siempre salga mejor de nuestras manos.\n\n Lo importante no es decir que servimos, sino lograr que el cliente sienta y perciba evidencias de un diferencial emocional que trasciende al negocio y a las circunstancias.\n\n",
+        subtopics: [],
+      },
+      {
+        topic: "¿A quién SERVIR?",
+        description:
+          "Despertar sensibilidad por el CLIENTE y el usuario.  Comprender la importancia de ellos como razón de ser y posibilidad de existir de la empresa y de nuestro trabajo.\n\n El cliente tiene una ventaja “el escoge” y por eso nuestro reto es cautivarlo más y mejor que la competencia.  Todos los que estamos compitiendo lo queremos para nuestro negocio. El reto es ser atractivos para el cliente, para ser su primera opción.\n\nEl cliente es el negocio, sin clientes no hay negocio, la cantidad de clientes determina el tamaño de la empresa y por lo tanto la cantidad de los puestos de trabajo. El cliente no nos necesita, aunque tenga una necesidad; nosotros lo necesitamos a él como semilla de futuro y sentido de negocio.\n\nEl cliente no es un código, ni una necesidad, ni un formato, ni una identificación.  Es ante todo una PERSONA que se materializa como cliente en la medida que comprendamos sus motivaciones y su experiencia emocional y le damos respuesta de manera excepcional: única, relevante y personalizada.  El cliente tiene una necesidad real y está buscando quién se la satisfaga, pero también es un ser lleno de posibilidades que merece y anhela crecer en la relación con los demás. Necesitamos vencer la indiferencia y despertar sensibilidad, para lograr ser su mejor aliado para realizar vínculos duraderos.\n\n Necesitamos desarrollar una cultura basada en relaciones humanas de alto impacto, que sorprendan y cautiven al cliente para siempre. Que lo motiven a hablar no sólo de nosotros sino de la “experiencia de estar con nosotros”.  El reto no es sólo cuidar al cliente; sino transformar personas en clientes.\n\n",
+        subtopics: [],
+      },
+      {
+        topic: "¿Cómo SERVIR?",
+        description:
+          "La reflexión está encaminada a elevar el nivel de conciencia del formato y las creencias iniciales con las que aprendimos a servir.  Las personas actuamos no desde lo que sabemos; sino desde la programación que se originó con nuestros referentes. Ese programa está contenido inconscientemente en las valoraciones que hacemos para definir nuestros actos.  Descubrir y reconocer esa limitación es muy poderoso porque nos permite darnos cuenta de que el servicio auténtico no es un discurso, ni un ideal, ni un deseo; es ACTOS.  Después de despertar conciencia nos abrimos a la gran posibilidad humana de elegir y reprogramar.  Y esa es el objetivo de esta experiencia reflexiva.  El reto no es lo fácil; sino lo posible.\n\n Necesitamos aprender a servir, desde los VALORES propios de la empresa.  Tenemos que generar coherencia entre lo que dice nuestra publicidad, lo que refleja nuestra cultura y lo que perciben los clientes al estar con nosotros.  Para lograrlo haremos formación en los valores corporativos.\n\n Respeto – Honestidad - Responsabilidad – Confianza – Compromiso - Excelencia – Coherencia - Integridad - Empatía – Solidaridad – Gratitud – Servicio – Amor por la VIDA.\n\n",
+        subtopics: [],
+      },
+      {
+        topic: "¿Desde QUIEN servir?",
+        description:
+          "El principio que guía esta “línea temática” es: \n\n Los resultados de la vida son fruto de los actos y de las reacciones; y los actos de originan en el SER que somos.  Ese Ser está conforma especialmente: información inconsciente, programa de creencias, lentes perceptivos, uso del pensamiento y memorias emocionales. Por algo, es común afirmar: 'Uno da, de lo que tiene por dentro'. Eso nos permite afirmar que la calidad de los resultados es proporcional a la calidad del SER que somos.\n\n  Si tenemos emociones negativas contenidas, nuestros actos estarán contaminados de ellas y por lo tanto el impacto que producimos en otros tendrá ese matiz.\n\n Por eso para servir de manera auténtica, el trabajo inicia en formar nuestro SER para servir, especialmente desde la conciencia y la gestión de las emociones.\n\n Descubriremos entonces que parte lo que somos y de lo que reflejamos en nuestros actos, proviene de vivencias y emociones negativas guardadas en nuestro interior, en una zona oscura inconsciente que no hemos aprendido a gestionar.  Una zona de emociones negativas acumuladas que nos roba espacio para posibilidades positivas de futuro.  El trabajo reflexivo nos permitirá liberar emociones retenidas, sanar dolores, perdonar, sacar las piedras del morral personal y descubrir el valor de trasformar el ego en generosidad.\n\n Y luego de liberar las emociones negativas que nos controlan, aprenderemos a reaccionar a las emociones negativas del entorno, aprenderemos a neutralizar, a no engancharnos.  Aprenderemos a respetar los estados emocionales del que SER que elegimos SER.\n\n  Lo haremos mediante símiles de fácil recordación: cortar el nylon, el acuario, el torero, el cascabel: aprenderemos a neutralizar que estimulan la práctica en la vida cotidiana.\n\n",
         subtopics: [],
       },
     ],
@@ -1051,6 +1297,57 @@ const ProgramDetail = (_props: IProgramDetail) => {
           style={{ margin: "0 auto" }}
         />
       )}
+      <Grid
+        container
+        direction="column"
+        alignContent="center"
+        style={{
+          backgroundColor: `${program.color}d1`,
+          color: "white",
+        }}
+      >
+        <Grid
+          item
+          style={{ backgroundColor: `${program.color}d1`, width: "100%" }}
+        >
+          <Typography variant="h6" paragraph>
+            Fechas:
+          </Typography>
+          <Typography variant="subtitle1" style={{ fontWeight: "bold" }}>
+            Cada miércoles del 16 de febrero al 30 de marzo
+          </Typography>
+          <Typography variant="caption">Hora: 8:15am a 10:00am</Typography>
+        </Grid>
+        <Grid
+          item
+          style={{ backgroundColor: `${program.color}4a` }}
+          container
+          justifyContent="center"
+        >
+          <Grid item xs={12}>
+            <Typography variant="subtitle1">
+              Estructura del programa:
+            </Typography>
+          </Grid>
+          <ul style={{ width: "auto", marginTop: 0 }}>
+            <li>
+              <Typography align="left" variant="subtitle2">
+                Siete (7) sesiones en vivo
+              </Typography>
+            </li>
+            <li>
+              <Typography align="left" variant="subtitle2">
+                Sesiones virtuales de 1 hora y media
+              </Typography>
+            </li>
+            <li>
+              <Typography align="left" variant="subtitle2">
+                1 sesión semanal
+              </Typography>
+            </li>
+          </ul>
+        </Grid>
+      </Grid>
       <Columns
         color={program.color}
         column1={program.column1}

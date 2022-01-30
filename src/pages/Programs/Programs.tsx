@@ -10,12 +10,13 @@ import {
 import React, { useEffect, useState } from "react";
 import Title from "../AboutMe/components/Title";
 import Contact from "../Contact/Contact";
-import OnlinePrograms from "../Inicio/components/OnlinePrograms";
+import OnlinePrograms from "./OnlinePrograms";
 
 import programa4 from "./images/iconosprogramas-04.svg";
 import programa5 from "./images/iconosprogramas-05.svg";
 
 import backgroundImage from "./images/munecos-fondo.png";
+import EnterprisePrograms from "./EnterprisePrograms";
 
 const enterprisePrograms = [
   {
@@ -88,35 +89,8 @@ const Programs = (props: IPrograms) => {
         <Grid item container justifyContent="center" style={{ marginTop: 20 }}>
           <OnlinePrograms />
         </Grid>
-        <Grid item style={{ marginTop: 30 }}>
-          <Title title="Programas para Empresas" />
-        </Grid>
         <Grid item container justifyContent="center" style={{ marginTop: 20 }}>
-          {enterprisePrograms.map((p) => (
-            <Grid item xs={10} sm={4} container>
-              <Grid
-                item
-                container
-                alignItems="center"
-                justifyContent="center"
-                className={classes.programCard}
-              >
-                <Grid item>
-                  <img
-                    src={p.image}
-                    alt={p.name}
-                    height="200px"
-                    width="200px"
-                  />
-                </Grid>
-                <Grid item>
-                  <Typography variant="h6" className={classes.programName}>
-                    {p.name}
-                  </Typography>
-                </Grid>
-              </Grid>
-            </Grid>
-          ))}
+          <EnterprisePrograms />
         </Grid>
       </Grid>
       <Contact />

@@ -120,19 +120,19 @@ const MenuAppbar = (props: IAppbar) => {
             <ListItem button onClick={() => handleClick("/")}>
               <ListItemText primary="MartaOlga" />
             </ListItem>
-            <ListItem button onClick={() => handleClick("programas")}>
+            <ListItem button onClick={() => handleClick("/programas")}>
               <ListItemText primary="Programas" />
             </ListItem>
-            <ListItem button onClick={() => handleClick("experiencia")}>
+            <ListItem button onClick={() => handleClick("/experiencia")}>
               <ListItemText primary="Experiencia" />
             </ListItem>
-            <ListItem button onClick={() => handleClick("metodologia")}>
+            <ListItem button onClick={() => handleClick("/metodologia")}>
               <ListItemText primary="Metodología" />
             </ListItem>
-            <ListItem button onClick={() => handleClick("blog")}>
+            <ListItem button onClick={() => handleClick("/blog")}>
               <ListItemText primary="Blog" />
             </ListItem>
-            <ListItem button onClick={() => handleClick("contacto")}>
+            <ListItem button onClick={() => handleClick("/contacto")}>
               <ListItemText primary="Contáctame" />
             </ListItem>
           </List>
@@ -161,7 +161,7 @@ const MenuAppbar = (props: IAppbar) => {
         <Grid item className={classes.griditem}>
           <Button
             className={classes.button}
-            onClick={() => handleClick("programas")}
+            onClick={() => handleClick("/programas")}
           >
             <Typography>Programas</Typography>
           </Button>
@@ -169,13 +169,14 @@ const MenuAppbar = (props: IAppbar) => {
         <Grid item className={classes.griditem}>
           <Button
             className={classes.button}
-            onClick={() => handleClick("experiencia")}
+            onClick={() => handleClick("/experiencia")}
           >
             <Typography>Experiencia</Typography>
           </Button>
         </Grid>
         <Grid item xs={2} style={{ padding: 0 }}>
           <img
+            onClick={() => handleClick("/")}
             src={logo}
             height={HEIGHT * 0.7}
             alt="logo"
@@ -185,7 +186,7 @@ const MenuAppbar = (props: IAppbar) => {
         <Grid item className={classes.griditem}>
           <Button
             className={classes.button}
-            onClick={() => handleClick("metodologia")}
+            onClick={() => handleClick("/metodologia")}
           >
             <Typography>Metodología</Typography>
           </Button>
@@ -193,7 +194,7 @@ const MenuAppbar = (props: IAppbar) => {
         <Grid item className={classes.griditem}>
           <Button
             className={classes.button}
-            onClick={() => handleClick("blog")}
+            onClick={() => handleClick("/blog")}
           >
             <Typography>Blog</Typography>
           </Button>
@@ -201,7 +202,7 @@ const MenuAppbar = (props: IAppbar) => {
         <Grid item className={classes.griditem}>
           <Button
             className={classes.button}
-            onClick={() => handleClick("contacto")}
+            onClick={() => handleClick("/contacto")}
           >
             <Typography>Contáctame</Typography>
           </Button>

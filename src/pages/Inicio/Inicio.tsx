@@ -1,11 +1,11 @@
 import { useTheme } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 import Contact from "../Contact/Contact";
-import EnterprisePrograms from "./components/EnterprisePrograms";
+import EnterprisePrograms from "../Programs/EnterprisePrograms";
 import MainBanner from "./components/MainBanner";
 import MessageCarousel from "./components/MessageCarousel";
 import Newsletter from "./components/Newsletter";
-import OnlinePrograms from "./components/OnlinePrograms";
+import OnlinePrograms from "../Programs/OnlinePrograms";
 import ReflexiveExperiences from "./components/ReflexiveExperiences";
 import Testimonies, { ITestimony } from "./components/Testimonies";
 
