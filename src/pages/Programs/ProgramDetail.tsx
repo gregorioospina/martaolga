@@ -47,6 +47,7 @@ import p10_icon from "../../pages/Programs/images/P10/iconos programas-10.svg";
 
 import { useLocation } from "react-router-dom";
 import { MOBILE_HEIGHT, HEIGHT } from "../MenuAppbar";
+import Dates from "./components/Dates";
 
 const programs = {
   "001": {
@@ -153,6 +154,15 @@ const programs = {
           "Declarar compromisos y sellarlos con INTEGRIDAD, para generar evidencias",
       },
     ],
+    dates: {
+      dates: "Cada miércoles del 16 de febrero al 30 de marzo",
+      times: "8:15am a 10:00am",
+      structure: [
+        "Siete (7) sesiones en vivo",
+        "Sesiones virtuales de 1 hora y media",
+        "1 sesión semanal",
+      ],
+    },
     footerImage: "",
     url: "",
   },
@@ -257,6 +267,15 @@ const programs = {
         ],
       },
     ],
+    dates: {
+      dates: "Cada lunes del 18 de abril al 30 de mayo",
+      times: "5:00pm a 6:45pm",
+      structure: [
+        "Siete (7) sesiones en vivo",
+        "Sesiones virtuales de 1 hora y 45 min",
+        "1 sesión semanal",
+      ],
+    },
     footerImage: "",
     url: "",
   },
@@ -398,6 +417,15 @@ const programs = {
         ],
       },
     ],
+    dates: {
+      dates: "Cada miércoles del 18 de mayo al 29 de junio",
+      times: "8:15am a 10:00am",
+      structure: [
+        "Siete (7) sesiones en vivo",
+        "Sesiones virtuales de 1 hora y 45 min",
+        "1 sesión semanal",
+      ],
+    },
     footerImage: "",
     url: "",
   },
@@ -482,6 +510,14 @@ const programs = {
         ],
       },
     ],
+    dates: {
+      dates: "Del 24 de marzo al 7 de abril",
+      times: "5:00 pm a 6:45 pm",
+      structure: [
+        "Cinco (5) sesiones en vivo",
+        "Sesiones virtuales de 1 hora y 45 minutos",
+      ],
+    },
     footerImage: "",
     url: "",
   },
@@ -600,6 +636,14 @@ const programs = {
         subtopics: [],
       },
     ],
+    dates: {
+      dates: "Del 14 de junio al 29 de junio",
+      times: "5:00 pm a 6:45 pm",
+      structure: [
+        "Cuatro (4) sesiones en vivo",
+        "Sesiones virtuales de 1 hora y 45 min",
+      ],
+    },
     footerImage: "",
     url: "",
   },
@@ -1297,57 +1341,7 @@ const ProgramDetail = (_props: IProgramDetail) => {
           style={{ margin: "0 auto" }}
         />
       )}
-      <Grid
-        container
-        direction="column"
-        alignContent="center"
-        style={{
-          backgroundColor: `${program.color}d1`,
-          color: "white",
-        }}
-      >
-        <Grid
-          item
-          style={{ backgroundColor: `${program.color}d1`, width: "100%" }}
-        >
-          <Typography variant="h6" paragraph>
-            Fechas:
-          </Typography>
-          <Typography variant="subtitle1" style={{ fontWeight: "bold" }}>
-            Cada miércoles del 16 de febrero al 30 de marzo
-          </Typography>
-          <Typography variant="caption">Hora: 8:15am a 10:00am</Typography>
-        </Grid>
-        <Grid
-          item
-          style={{ backgroundColor: `${program.color}4a` }}
-          container
-          justifyContent="center"
-        >
-          <Grid item xs={12}>
-            <Typography variant="subtitle1">
-              Estructura del programa:
-            </Typography>
-          </Grid>
-          <ul style={{ width: "auto", marginTop: 0 }}>
-            <li>
-              <Typography align="left" variant="subtitle2">
-                Siete (7) sesiones en vivo
-              </Typography>
-            </li>
-            <li>
-              <Typography align="left" variant="subtitle2">
-                Sesiones virtuales de 1 hora y media
-              </Typography>
-            </li>
-            <li>
-              <Typography align="left" variant="subtitle2">
-                1 sesión semanal
-              </Typography>
-            </li>
-          </ul>
-        </Grid>
-      </Grid>
+      {program.dates && <Dates program={program} />}
       <Columns
         color={program.color}
         column1={program.column1}
