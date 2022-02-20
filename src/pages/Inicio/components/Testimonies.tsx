@@ -66,8 +66,9 @@ const Testimonies = (props: ITestimonies) => {
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       root: {
-        height: "60vh",
+        minHeight: "60vh",
         paddingTop: 45,
+        marginBottom: 30,
       },
       title: {
         borderBottom: `solid 2pt ${theme.palette.primary.main}`,
@@ -143,7 +144,7 @@ const TestimonyCard = ({
         boxShadow: "1pt 1pt 5px -1px #00000038",
         backgroundColor: "white",
         minHeight: 250,
-        maxHeight: "45vh",
+        maxHeight: "60vh",
         minWidth: isMobile ? "86%" : "",
         marginRight: isMobile ? 15 : "",
       },

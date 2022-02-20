@@ -20,20 +20,16 @@ export interface IStep {
 
 const ssteps: IStep[] = [
   {
-    title: "¿Quisieras vivir una verdadera transformación personal?",
-    body: "Transformarte en el Ser que quieres ser, implica despertar conciencia, descubrir creencias, reinterpretar percepciones, soltar las cargas emocionales del pasado y dar la bienvenida a nuevas posibilidades. Es un trabajo personal, indelegable y no da espera.",
+    title: "¿Qué es transformar el Ser?",
+    body: "Es el proceso constante de elegir con conciencia y seleccionar nuestras posibilidades de forma auténtica, positiva y funcional a nuestras vidas. \n\n Es aceptar nuevas creencias que llevamos a la acción para construir el Ser que queremos ser.\n\n Cuando transformamos nuestro Ser tomamos la decisión de renunciar, reinterpretar, neutralizar, perdonar, sanar y agradecer.",
   },
   {
-    title: "¿Quisieras promover una verdadera transformación en tu empresa?",
-    body: "to the copied scripts so you can tweak them. At this point you’re on your own.",
+    title: "¿Qué es despertar conciencia?",
+    body: "Es encontrar el origen de nuestra manera de Ser dándonos cuenta del impacto que producen nuestros actos y reacciones en la vida cotidiana.",
   },
   {
-    title: "Que es transformar",
-    body: "asDFLas falsThe page will reload if you make edits. You will also see any lint errors in the console.",
-  },
-  {
-    title: "Builds the app for production",
-    body: "to the copied scripts so you can tweak them. At this point you’re on your own.",
+    title: "¿Qué es formar el Ser?",
+    body: "Es un proceso en el que desarrollamos una forma diferente de percibir la vida, descubriendo nuevas formas de usar el pensamiento para comprender, aceptar y asumir nuestra realidad. Cuando formamos nuestro Ser, aprendemos a valorar nuestras experiencias de vida y a controlar nuestras reacciones emocionales. Es ahí donde encontramos nuevas formas para interpretar la realidad, de manera que podamos convertir el sufrimiento en aprendizaje.",
   },
 ];
 
@@ -82,7 +78,7 @@ const MessageCarousel = ({
         },
       },
       root: {
-        height: "30vh",
+        height: "40vh",
         backgroundColor,
         color,
         position: "relative",
@@ -139,11 +135,22 @@ const MessageCarousel = ({
         >
           <Typography
             variant="h5"
-            style={{ fontWeight: "bold", marginBottom: 15 }}
+            style={{
+              fontWeight: "bold",
+              marginBottom: 15,
+            }}
           >
             {s.title}
           </Typography>
-          <Typography variant="body1">{s.body}</Typography>
+          <Typography
+            variant="body1"
+            align="justify"
+            style={{
+              whiteSpace: "break-spaces",
+            }}
+          >
+            {s.body}
+          </Typography>
         </Grid>
       ))}
       <IconButton

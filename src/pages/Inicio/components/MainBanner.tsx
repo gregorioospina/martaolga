@@ -76,7 +76,6 @@ const MainBanner = (props: IMainBanner) => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         height: "100%",
-        minWidth: "100vw",
         opacity: 0,
         "&.fadein": {
           opacity: 1,
@@ -145,6 +144,7 @@ const MainBanner = (props: IMainBanner) => {
           style={{
             paddingLeft: 20,
             backgroundImage: `url(${s.image})`,
+            minWidth: "100%",
           }}
         >
           <Grid

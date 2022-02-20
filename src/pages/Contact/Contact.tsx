@@ -10,6 +10,7 @@ import {
   useTheme,
 } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
+import emailjs from "@emailjs/browser";
 
 interface IContact {}
 
@@ -30,28 +31,56 @@ const Contact = (props: IContact) => {
 
   const classes = useStyles();
 
+  const handleSendEmail = () => {
+    const name =
+      (document.getElementById("name-input") as any)?.value ??
+      "NO ESCRIBIO NOMBRE";
+    const email =
+      (document.getElementById("email-input") as any)?.value ??
+      "NO ESCRIBIO CORREO";
+    const cellphone =
+      (document.getElementById("phone-input") as any)?.value ??
+      "NO ESCRIBIO TELEFONO";
+    const message =
+      (document.getElementById("message-input") as any)?.value ??
+      "NO ESCRIBIO MENSAJE";
+
+    const params = {
+      name,
+      email,
+      cellphone,
+      message,
+    };
+    // console.log(params);
+    emailjs.send("service_4ptbbao", "template_kgf98rc", params);
+  };
+
   return (
     <Grid
       container
       style={{
+        padding: isMobile ? 10 : "",
         paddingTop: 30,
         paddingLeft: 20,
-        padding: isMobile ? 10 : "",
         paddingBottom: 20,
         backgroundColor: "white",
       }}
     >
-      <Grid item xs={isMobile ? 12 : 6} container>
+      <Grid item xs={isMobile ? 12 : 6} container alignContent="center">
         <Grid item style={{ paddingTop: isMobile ? 10 : "" }}>
           <Typography variant={isMobile ? "h5" : "h4"}>
-            Quieres hablar conmigo y obtener mas hablar conmigo y obtener mas
-            hablar conmigo y obtener mas hablar conmigo y obtener mas
+            ¿Quieres hablar conmigo y obtener mas hablar conmigo y obtener
+            información detallada sobre alguno de mis programas?
           </Typography>
         </Grid>
         <Grid item style={{ paddingTop: isMobile ? 10 : "" }}>
-          <Typography variant={isMobile ? "body2" : "body1"}>
-            Quieres hablar conmigo y obtener mas hablar conmigo y obtener mas
-            hablar conmigo y obtener mas hablar conmigo y obtener mas
+          <Typography
+            variant={isMobile ? "body2" : "body1"}
+            style={{ width: "100%" }}
+            align="center"
+          >
+            Llena el siguiente formulario con tus datos y te responderé tan
+            pronto lea tu mensaje
           </Typography>
         </Grid>
         <Grid item>
@@ -102,6 +131,7 @@ const Contact = (props: IContact) => {
             variant="contained"
             color="primary"
             className={classes.button}
+            onClick={handleSendEmail}
           >
             {" "}
             Enviar{" "}

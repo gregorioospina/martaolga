@@ -16,6 +16,7 @@ import program9 from "../Inicio/images/p9.jpg";
 import program10 from "../Inicio/images/p9.jpg";
 
 import { useHistory } from "react-router-dom";
+import ProgramCard from "./components/ProgramCard";
 
 const programs = [
   {
@@ -62,15 +63,6 @@ const EnterprisePrograms = ({ showAllButton }: IEnterprisePrograms) => {
         minHeight: "50vh",
         // backgroundColor: "#f7f7f7",
       },
-      programCard: {
-        // height: "35vh",
-        // width: "35vh",
-        boxShadow: "1pt 1pt 5px -1px #00000038",
-        // padding: 15,
-        margin: 10,
-        backgroundColor: "white",
-        borderRadius: 27,
-      },
       title: {
         borderBottom: `solid 2pt ${theme.palette.primary.main}`,
         height: "min-content",
@@ -111,34 +103,9 @@ const EnterprisePrograms = ({ showAllButton }: IEnterprisePrograms) => {
         xs={12}
         style={{ marginTop: 25 }}
       >
-        {programs.map((p) => {
-          return (
-            <Grid
-              item
-              container
-              className={classes.programCard}
-              onClick={() => history.push(p.pathname)}
-              style={{
-                backgroundImage: `url(${p.image})`,
-                backgroundPosition: "center",
-                backgroundSize: "cover",
-              }}
-              direction="column"
-              xs={isMobile ? 5 : 3}
-              wrap="nowrap"
-            >
-              <Grid
-                item
-                style={{ width: "100%", height: isMobile ? "45vw" : "20vw" }}
-              >
-                {/* <img src={p.image} alt={p.name} height="100%" width="100%" /> */}
-              </Grid>
-              {/* <Grid item>
-                <Typography variant="h6">{p.name}</Typography>
-              </Grid> */}
-            </Grid>
-          );
-        })}
+        {programs.map((p) => (
+          <ProgramCard {...p} />
+        ))}
       </Grid>
     </Grid>
   );

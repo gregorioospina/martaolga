@@ -20,6 +20,7 @@ import logo from "../images/LogoHeader.png";
 import { Menu } from "@material-ui/icons";
 
 export const HEIGHT = 100;
+export const MEDIUM_HEIGHT = 70;
 export const MOBILE_HEIGHT = 45;
 
 interface IAppbar {}
@@ -27,6 +28,7 @@ interface IAppbar {}
 const MenuAppbar = (props: IAppbar) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMedium = useMediaQuery(theme.breakpoints.down("md"));
 
   const history = useHistory();
   const location = useLocation();
@@ -47,10 +49,13 @@ const MenuAppbar = (props: IAppbar) => {
         backgroundColor: "orange",
       },
       appbar: {
-        height: HEIGHT,
+        height: isMedium ? MEDIUM_HEIGHT : HEIGHT,
         backgroundColor: "white",
         marginBottom: -15,
         boxShadow: "0pt 1pt 3px -1px #00000030",
+        width: "100vw",
+        left: 0,
+        right: "auto",
       },
       mobileAppbar: {
         height: MOBILE_HEIGHT,
@@ -58,9 +63,12 @@ const MenuAppbar = (props: IAppbar) => {
         marginBottom: -15,
         boxShadow: "0pt 1pt 3px -1px #00000030",
         // position: "relative",
+        width: "100vw",
+        left: 0,
+        right: "auto",
       },
       button: {
-        height: HEIGHT - 15,
+        height: (isMedium ? MOBILE_HEIGHT : HEIGHT) - 15,
         textTransform: "none",
         "&:hover": {
           background: "white",
@@ -75,6 +83,8 @@ const MenuAppbar = (props: IAppbar) => {
       },
       logoButton: {
         cursor: "pointer",
+        maxHeight: (isMedium ? MEDIUM_HEIGHT : HEIGHT) - 20,
+        marginTop: 3,
       },
     })
   );

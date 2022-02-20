@@ -69,7 +69,12 @@ const ValueInProcess = ({
         direction="column"
         justifyContent="center"
         spacing={isMobile ? 0 : 4}
-        style={{ paddingLeft: 20, height: "100%", padding: isMobile ? 10 : "" }}
+        style={{
+          paddingLeft: 20,
+          height: "100%",
+          padding: isMobile ? 10 : "",
+          paddingTop: 30,
+        }}
       >
         {title && (
           <Grid item>

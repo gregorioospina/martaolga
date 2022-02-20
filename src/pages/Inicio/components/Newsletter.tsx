@@ -9,8 +9,10 @@ import {
   useMediaQuery,
   useTheme,
 } from "@material-ui/core";
-import React, { useEffect, useState } from "react";
-
+import React, { useCallback, useEffect, useState } from "react";
+import newsletterimage from "../images/fotos-inicio-17.png";
+import emailjs from "@emailjs/browser";
+// import { throttle } from "lodash";
 interface INewsletter {}
 
 const Newsletter = (props: INewsletter) => {
@@ -20,9 +22,10 @@ const Newsletter = (props: INewsletter) => {
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       root: {
-        height: "40vh",
+        height: window.innerHeight * (isMobile ? 0.38 : 0.32),
         backgroundColor: theme.palette.primary.main,
         color: "white",
+        padding: isMobile ? 20 : "",
       },
       input: {
         borderColor: "white",
@@ -60,9 +63,33 @@ const Newsletter = (props: INewsletter) => {
 
   const classes = useStyles();
 
+  // const throttleAction = useCallback(
+  //   throttle((action: any) => action(), 5000),
+  //   []
+  // );
+
+  const handleSendNewMail = () => {
+    const email = (document.getElementById("newsletter-input") as any)?.value;
+    console.log({ email });
+    // emailjs.send("service_4ptbbao", "template_kgf98rc", { email });
+  };
+
   return (
     <Grid item container justify="center" className={classes.root}>
-      {!isMobile && <Grid item xs={3}></Grid>}
+      {!isMobile && (
+        <Grid item xs={3} style={{ position: "relative" }}>
+          <img
+            src={newsletterimage}
+            alt="imagen de newsletter"
+            height={window.innerHeight * 0.3}
+            style={{
+              position: "absolute",
+              left: 30,
+              bottom: 0,
+            }}
+          />
+        </Grid>
+      )}
       <Grid
         item
         xs={isMobile ? 11 : 9}
@@ -102,8 +129,13 @@ const Newsletter = (props: INewsletter) => {
               }}
               className={classes.input}
               placeholder="tu correo"
+              id="newsletter-input"
             />
-            <Button variant="contained" className={classes.button}>
+            <Button
+              variant="contained"
+              className={classes.button}
+              // onClick={() => throttleAction(handleSendNewMail())}
+            >
               <Typography>ENVIAR</Typography>
             </Button>
           </Grid>

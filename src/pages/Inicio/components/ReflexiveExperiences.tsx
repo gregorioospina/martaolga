@@ -10,7 +10,7 @@ import {
 } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 
-import fotoEscritorio from "../images/fotos-inicio-16.png";
+import fotoEscritorio from "../images/fotos-inicio-16.jpg";
 
 interface IReflexiveExperiences {}
 
