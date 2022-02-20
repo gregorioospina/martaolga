@@ -6,7 +6,7 @@ npm i --legacy-peer-deps
 echo "run build"
 npm run build
 echo "clean s3"
-aws s3 rm s3://martaolga.com --recursive 
+# aws s3 rm s3://martaolga.com --recursive 
 #--profile awsGrego
 echo "upload files to s3"
 aws s3 cp ./build s3://martaolga.com --recursive --acl public-read 
