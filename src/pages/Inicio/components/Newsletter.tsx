@@ -12,12 +12,14 @@ import {
 import React, { useCallback, useEffect, useState } from "react";
 import newsletterimage from "../images/fotos-inicio-17.png";
 import emailjs from "@emailjs/browser";
-// import { throttle } from "lodash";
+import { throttle } from "lodash";
+import LandingSnackbar from "../../../tools/Snackbar";
 interface INewsletter {}
 
 const Newsletter = (props: INewsletter) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const [sent, setSent] = useState<boolean>(false);
 
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -63,15 +65,29 @@ const Newsletter = (props: INewsletter) => {
 
   const classes = useStyles();
 
-  // const throttleAction = useCallback(
-  //   throttle((action: any) => action(), 5000),
-  //   []
-  // );
+  useEffect(() => {
+    if (sent === true) {
+      const e = setTimeout(() => {
+        setSent(false);
+      }, 2000);
+      return () => clearTimeout(e);
+    }
+  }, [sent]);
+
+  const throttleAction = useCallback(
+    throttle((action: any) => {
+      console.log(action);
+      action();
+    }, 5000),
+    []
+  );
 
   const handleSendNewMail = () => {
     const email = (document.getElementById("newsletter-input") as any)?.value;
-    console.log({ email });
-    // emailjs.send("service_4ptbbao", "template_kgf98rc", { email });
+    if (email.length < 7) return;
+    setSent(true);
+    // console.log({ email });
+    emailjs.send("service_4ptbbao", "template_3q0l169", { email });
   };
 
   return (
@@ -134,13 +150,18 @@ const Newsletter = (props: INewsletter) => {
             <Button
               variant="contained"
               className={classes.button}
-              // onClick={() => throttleAction(handleSendNewMail())}
+              onClick={() => throttleAction(handleSendNewMail)}
             >
               <Typography>ENVIAR</Typography>
             </Button>
           </Grid>
         </Grid>
       </Grid>
+      <LandingSnackbar
+        open={sent}
+        message={"Enviado exitosamente"}
+        type="success"
+      />
     </Grid>
   );
 };

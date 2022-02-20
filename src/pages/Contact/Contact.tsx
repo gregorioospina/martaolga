@@ -11,12 +11,16 @@ import {
 } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
+import useThrottle from "../../hooks/useThrottle";
+import LandingSnackbar from "../../tools/Snackbar";
 
 interface IContact {}
 
 const Contact = (props: IContact) => {
   const theme = useTheme();
+  const [sent, setSent] = useState<boolean>(false);
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const { throttleAction } = useThrottle(5000);
 
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -26,31 +30,53 @@ const Contact = (props: IContact) => {
       button: {
         margin: 10,
       },
+      bck: {
+        backgroundColor: "white",
+        transition: "background-color 1s ease",
+        "&.sent": {
+          backgroundColor: "#ddffcf",
+        },
+      },
     })
   );
 
   const classes = useStyles();
 
+  useEffect(() => {
+    if (sent === true) {
+      const e = setTimeout(() => {
+        setSent(false);
+      }, 2000);
+      return () => clearTimeout(e);
+    }
+  }, [sent]);
+
   const handleSendEmail = () => {
-    const name =
-      (document.getElementById("name-input") as any)?.value ??
-      "NO ESCRIBIO NOMBRE";
-    const email =
-      (document.getElementById("email-input") as any)?.value ??
-      "NO ESCRIBIO CORREO";
-    const cellphone =
-      (document.getElementById("phone-input") as any)?.value ??
-      "NO ESCRIBIO TELEFONO";
-    const message =
-      (document.getElementById("message-input") as any)?.value ??
-      "NO ESCRIBIO MENSAJE";
+    const nameinput = document.getElementById("name-input") as any;
+    const emailinput = document.getElementById("email-input") as any;
+    const cellphoneinput = document.getElementById("phone-input") as any;
+    const messageinput = document.getElementById("message-input") as any;
+
+    const name = nameinput?.value;
+    const email = emailinput?.value;
+    const cellphone = cellphoneinput?.value;
+    const message = messageinput?.value;
 
     const params = {
-      name,
-      email,
-      cellphone,
-      message,
+      name: !name || name?.length === 0 ? "NO ESCRIBIO" : name,
+      email: !email || email?.length === 0 ? "NO ESCRIBIO" : email,
+      cellphone:
+        !cellphone || cellphone?.length === 0 ? "NO ESCRIBIO" : cellphone,
+      message: !message || message?.length === 0 ? "NO ESCRIBIO" : message,
     };
+
+    if (params.email === "NO ESCRIBIO" && params.cellphone === "NO ESCRIBIO")
+      return;
+    nameinput.value = "";
+    emailinput.value = "";
+    cellphoneinput.value = "";
+    messageinput.value = "";
+    setSent(true);
     // console.log(params);
     emailjs.send("service_4ptbbao", "template_kgf98rc", params);
   };
@@ -58,12 +84,12 @@ const Contact = (props: IContact) => {
   return (
     <Grid
       container
+      className={`${sent ? "sent" : ""} ${classes.bck}`}
       style={{
         padding: isMobile ? 10 : "",
         paddingTop: 30,
         paddingLeft: 20,
         paddingBottom: 20,
-        backgroundColor: "white",
       }}
     >
       <Grid item xs={isMobile ? 12 : 6} container alignContent="center">
@@ -131,13 +157,18 @@ const Contact = (props: IContact) => {
             variant="contained"
             color="primary"
             className={classes.button}
-            onClick={handleSendEmail}
+            onClick={() => throttleAction(handleSendEmail)}
           >
             {" "}
             Enviar{" "}
           </Button>
         </Grid>
       </Grid>
+      <LandingSnackbar
+        open={sent}
+        message={"Enviado exitosamente"}
+        type="success"
+      />
     </Grid>
   );
 };
