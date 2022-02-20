@@ -13,7 +13,7 @@ import program6 from "../Inicio/images/p6.jpg";
 import program7 from "../Inicio/images/p7.jpg";
 import program8 from "../Inicio/images/p8.jpg";
 import program9 from "../Inicio/images/p9.jpg";
-import program10 from "../Inicio/images/p9.jpg";
+import program10 from "../Inicio/images/p10.jpg";
 
 import { useHistory } from "react-router-dom";
 import ProgramCard from "./components/ProgramCard";
@@ -42,7 +42,7 @@ const programs = [
   {
     image: program10,
     name: "Transformacion del ser que queiro ser y el que puedo ser",
-    pathname: "/programas/0010",
+    pathname: "/programas/010",
   },
 ];
 

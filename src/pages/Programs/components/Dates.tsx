@@ -24,11 +24,13 @@ const Dates = ({ program }: IDates) => {
           padding: 15,
         }}
       >
-        <Typography variant="h6">Fechas:</Typography>
-        <Typography variant="subtitle1" style={{ fontWeight: "bold" }}>
+        <Typography variant="h5">Fechas:</Typography>
+        <Typography variant="h6" style={{ fontWeight: "bold" }}>
           {program.dates.dates}
         </Typography>
-        <Typography variant="caption">{program.dates.times}</Typography>
+        <Typography variant="subtitle1" style={{ whiteSpace: "break-spaces" }}>
+          {program.dates.times}
+        </Typography>
       </Grid>
       <Grid
         item
@@ -37,12 +39,12 @@ const Dates = ({ program }: IDates) => {
         justifyContent="center"
       >
         <Grid item xs={12}>
-          <Typography variant="subtitle1">Estructura del programa:</Typography>
+          <Typography variant="h6">Estructura del programa:</Typography>
         </Grid>
         <ul style={{ width: "auto", marginTop: 0 }}>
           {program.dates.structure.map((d: string) => (
             <li>
-              <Typography align="left" variant="subtitle2">
+              <Typography align="left" variant="h6">
                 {d}
               </Typography>
             </li>

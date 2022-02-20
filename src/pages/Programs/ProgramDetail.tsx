@@ -48,6 +48,7 @@ import p10_icon from "../../pages/Programs/images/P10/iconos programas-10.svg";
 import { useLocation } from "react-router-dom";
 import { MOBILE_HEIGHT, HEIGHT } from "../MenuAppbar";
 import Dates from "./components/Dates";
+import Contact from "../Contact/Contact";
 
 const programs = {
   "001": {
@@ -107,7 +108,7 @@ const programs = {
         subtopics: [],
         topic: "Conciencia de los resultados presentes",
         description:
-          "Hacer un alto en el camino para darnos cuenta cómo venimos viviendo, qué resultados produce nuestra manera de SER a la luz de las 4 dimensiones humanas",
+          "Hacer un alto en el camino para darnos cuenta cómo venimos viviendo, qué resultados produce nuestra manera de SER a la luz de las 4 dimensiones humanas.",
       },
       {
         subtopics: [],
@@ -156,15 +157,16 @@ const programs = {
     ],
     dates: {
       dates: "Cada miércoles del 16 de febrero al 30 de marzo",
-      times: "8:15am a 10:00am",
+      times: `Escoge horario: \nGrupo am: 8:15 – 10:00 am\nGrupo pm: 5:00 – 6:45 pm`,
       structure: [
-        "Siete (7) sesiones en vivo",
-        "Sesiones virtuales de 1 hora y media",
+        "Siete (7) sesiones virtuales",
         "1 sesión semanal",
+        "duración 1:45 horas",
       ],
     },
     footerImage: "",
-    url: "",
+    url: "https://martaolga.clynk.me/134z4M5T/menu?it=d1b86f53-cf3e-48aa-ba7d-10f74f643101",
+    message: "¿Estás listo para transformar tu vida?",
   },
   "002": {
     id: "002",
@@ -268,16 +270,18 @@ const programs = {
       },
     ],
     dates: {
-      dates: "Cada lunes del 18 de abril al 30 de mayo",
-      times: "5:00pm a 6:45pm",
+      dates: "mayo 4, 11, 18, 25 y junio 1, 8, 15",
+      times:
+        "Escoge horario:\n Grupo am: 8:15 – 10:00 am\n Grupo pm: 5:00 – 6:45 pm",
       structure: [
-        "Siete (7) sesiones en vivo",
-        "Sesiones virtuales de 1 hora y 45 min",
+        "Siete (7) sesiones virtuales",
         "1 sesión semanal",
+        "duración 1:45 horas",
       ],
     },
     footerImage: "",
-    url: "",
+    url: "https://martaolga.clynk.me/134z4M5T/menu?it=08d5aa08-a2dd-482d-ae3a-34254af1cc05",
+    message: "¿Quisieras continuar con tu transformación personal?",
   },
   "003": {
     id: "003",
@@ -418,16 +422,18 @@ const programs = {
       },
     ],
     dates: {
-      dates: "Cada miércoles del 18 de mayo al 29 de junio",
-      times: "8:15am a 10:00am",
+      dates: "agosto 3, 10, 17, 24 y 31 septiembre 7 y 14",
+      times:
+        "Escoge horario:\n Grupo am: 8:15 – 10:00 am\n Grupo pm: 5:00 – 6:45 pm",
       structure: [
-        "Siete (7) sesiones en vivo",
-        "Sesiones virtuales de 1 hora y 45 min",
+        "Siete (7) sesiones virtuales",
         "1 sesión semanal",
+        "duración 1:45 horas",
       ],
     },
+    message: "¿Te animas a darle significado a tu vida?",
     footerImage: "",
-    url: "",
+    url: "https://martaolga.clynk.me/134z4M5T/menu?it=3410486d-f075-43d5-b718-ea4719da22be",
   },
   "004": {
     id: "004",
@@ -511,15 +517,17 @@ const programs = {
       },
     ],
     dates: {
-      dates: "Del 24 de marzo al 7 de abril",
-      times: "5:00 pm a 6:45 pm",
+      dates: "Lunes y miércoles de abril (18, 20, 25 y 27) y mayo 2",
+      times: "5:00pm – 6:45 pm",
       structure: [
-        "Cinco (5) sesiones en vivo",
-        "Sesiones virtuales de 1 hora y 45 minutos",
+        "Cinco (5) sesiones virtuales",
+        "2 sesión semanal",
+        "duración 1:45 horas",
       ],
     },
+    message: "¿Estás dispuesta a fortalecer tu propio SER?",
     footerImage: "",
-    url: "",
+    url: "https://martaolga.clynk.me/134z4M5T/menu?it=6b5e336d-1626-48cf-a161-ebcf664d093b",
   },
   "005": {
     id: "005",
@@ -637,15 +645,17 @@ const programs = {
       },
     ],
     dates: {
-      dates: "Del 14 de junio al 29 de junio",
+      dates: "Miércoles junio 22 y 29 julio 6, 13 y 27",
       times: "5:00 pm a 6:45 pm",
       structure: [
-        "Cuatro (4) sesiones en vivo",
-        "Sesiones virtuales de 1 hora y 45 min",
+        "Cinco (5) sesiones virtuales",
+        "1 sesión semanal",
+        "duración 1:45 horas",
       ],
     },
+    message: "¿Quieres aprender a fluir con la vida?",
     footerImage: "",
-    url: "",
+    url: "https://martaolga.clynk.me/134z4M5T/menu?it=ad936d69-d07f-490b-a3fb-67be63d095d6",
   },
   "006": {
     id: "005",
@@ -1364,7 +1374,15 @@ const ProgramDetail = (_props: IProgramDetail) => {
           style={{ margin: "0 auto" }}
         />
       )}
-      <CallToAction color={program.color} url={program.url} />
+      {!!program.message ? (
+        <CallToAction
+          color={program.color}
+          url={program.url}
+          message={program?.message ?? "¿Quieres aprender a fluir con la vida?"}
+        />
+      ) : (
+        <Contact />
+      )}
     </Grid>
   );
 };

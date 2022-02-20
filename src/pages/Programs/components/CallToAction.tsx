@@ -10,6 +10,7 @@ import React, { useEffect, useState } from "react";
 
 interface ICallToAction {
   url: string;
+  message: string;
   color: string;
 }
 
@@ -26,6 +27,10 @@ const CallToAction = (props: ICallToAction) => {
 
   const classes = useStyles();
 
+  const handleClick = () => {
+    window.open(props.url, "_blank");
+  };
+
   return (
     <Grid
       item
@@ -38,11 +43,13 @@ const CallToAction = (props: ICallToAction) => {
     >
       <Grid item>
         <Typography variant="h4">
-          ¿Estás listo para transformar tu vida?
+          {props.message ?? "¿Estás listo para transformar tu vida?"}
         </Typography>
       </Grid>
       <Grid item>
-        <Button variant="contained">Quiero ser parte del programa</Button>
+        <Button onClick={handleClick} variant="contained">
+          Quiero ser parte del programa
+        </Button>
       </Grid>
     </Grid>
   );
