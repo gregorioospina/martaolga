@@ -86,7 +86,7 @@ const Newsletter = (props: INewsletter) => {
     const email = (document.getElementById("newsletter-input") as any)?.value;
     if (email.length < 7) return;
     setSent(true);
-    // console.log({ email });
+    console.log({ email });
     emailjs.send("service_4ptbbao", "template_3q0l169", { email });
   };
 
