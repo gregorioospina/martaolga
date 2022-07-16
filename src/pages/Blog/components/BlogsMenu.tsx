@@ -53,13 +53,13 @@ const BlogsMenu = ({ blogs, setBlogIndex }: IBlogsMenu) => {
   return (
     <React.Fragment>
       <Grid container direction="column" className={classes.root}>
-        <Grid item container style={{ padding: 20 }}>
+        <Grid item container style={{ padding: 20, paddingLeft: "5%", paddingRight: "5%" }}>
           <Grid item xs={7}>
             <Typography variant="h1" align="left" style={{ fontWeight: 500 }}>
               Hola,
             </Typography>
             <Typography variant="h4" align="left">
-              Bienvenidos a mi blog, soy MartaOlga Arango
+              Bienvenidos a mi blog, soy Marta Olga Arango
             </Typography>
             <Typography variant="body1" align="left">
               Este es un espacio para la reflexión,para conocernos más. Para

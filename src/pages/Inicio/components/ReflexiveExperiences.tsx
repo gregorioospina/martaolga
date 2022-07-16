@@ -24,6 +24,8 @@ const ReflexiveExperiences = (props: IReflexiveExperiences) => {
       button: {
         backgroundColor: theme.palette.primary.main,
         color: theme.palette.primary.contrastText,
+        padding: "12px 25px",
+        fontWeight: "bold"
       },
     })
   );

@@ -9,7 +9,7 @@ import {
   useTheme,
   useMediaQuery,
 } from "@material-ui/core";
-import { Facebook, Instagram, Mail, Phone, WhatsApp } from "@material-ui/icons";
+import { Facebook, Instagram, LinkedIn, Mail, Phone, WhatsApp } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
@@ -51,6 +51,10 @@ const Footer = (props: IFooter) => {
       pathname,
     });
   };
+
+  const handleOutsideRedirect = (pathname: string)=> {
+    window.open(pathname, "_blank");
+  }
 
   const classes = useStyles();
 
@@ -116,19 +120,19 @@ const Footer = (props: IFooter) => {
         alignContent="center"
         style={{ height: 100 }}
       >
-        <IconButton color="primary">
-          <Facebook />
+        <IconButton color="primary" onClick={() => handleOutsideRedirect("https://www.linkedin.com/in/marta-olga-arango/")}>
+          <LinkedIn />
         </IconButton>
-        <IconButton color="primary">
+        <IconButton color="primary" onClick={() => handleOutsideRedirect("https://www.instagram.com/martaolgaarango/")}>
           <Instagram />
         </IconButton>
-        <IconButton color="primary">
+        <IconButton color="primary" onClick={() => handleOutsideRedirect("wa.link/z0kqqv")}>
           <WhatsApp />
         </IconButton>
-        <IconButton color="primary">
+        <IconButton color="primary" onClick={() => handleOutsideRedirect("mailto:mo_arango@hotmail.com?subject=Informaci%C3%B3n%20sobre%20MartaOlga&body=Hola!%20Quiero%20recibir%20informaci%C3%B3n%20sobre%20MartaOlga.")}>
           <Mail />
         </IconButton>
-        <IconButton color="primary">
+        <IconButton color="primary" onClick={() => handleOutsideRedirect("tel:+57353978976")}>
           <Phone />
         </IconButton>
       </Grid>

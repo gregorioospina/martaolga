@@ -30,8 +30,8 @@ const BlogEntryCard = (props: IBlogEntryCard) => {
         //@ts-ignore
         width: "fill-available",
         borderRadius: 9,
-        marginLeft: props.index % 2 === 0 ? "auto" : "",
-        marginRight: props.index % 2 === 0 ? "" : "auto",
+        marginLeft: "auto",
+        marginRight: "auto",
         cursor: "pointer",
       },
     })

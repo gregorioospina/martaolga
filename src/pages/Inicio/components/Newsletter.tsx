@@ -24,7 +24,7 @@ const Newsletter = (props: INewsletter) => {
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       root: {
-        height: window.innerHeight * (isMobile ? 0.38 : 0.32),
+        // height: window.innerHeight * (isMobile ? 0.38 : 0.32),
         backgroundColor: theme.palette.primary.main,
         color: "white",
         padding: isMobile ? 20 : "",
@@ -97,7 +97,7 @@ const Newsletter = (props: INewsletter) => {
           <img
             src={newsletterimage}
             alt="imagen de newsletter"
-            height={window.innerHeight * 0.3}
+            height={"90%"}
             style={{
               position: "absolute",
               left: 30,
@@ -112,6 +112,7 @@ const Newsletter = (props: INewsletter) => {
         container
         alignContent="center"
         justifyContent={isMobile ? "center" : "flex-start"}
+        style={{padding: "50px 0px"}}
       >
         <Grid
           item
@@ -152,7 +153,7 @@ const Newsletter = (props: INewsletter) => {
               className={classes.button}
               onClick={() => throttleAction(handleSendNewMail)}
             >
-              <Typography>ENVIAR</Typography>
+              <Typography>Suscríbete</Typography>
             </Button>
           </Grid>
         </Grid>

@@ -78,7 +78,7 @@ const MessageCarousel = ({
         },
       },
       root: {
-        height: "40vh",
+        height: "400px",
         backgroundColor,
         color,
         position: "relative",
@@ -134,7 +134,7 @@ const MessageCarousel = ({
           } ${classes.step}`}
         >
           <Typography
-            variant="h5"
+            variant="h3"
             style={{
               fontWeight: "bold",
               marginBottom: 15,
@@ -143,7 +143,7 @@ const MessageCarousel = ({
             {s.title}
           </Typography>
           <Typography
-            variant="body1"
+            variant="h6"
             align="justify"
             style={{
               whiteSpace: "break-spaces",

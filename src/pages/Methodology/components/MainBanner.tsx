@@ -23,7 +23,7 @@ const MainBanner = (props: IMainBanner) => {
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       banner: {
-        height: "60vh",
+        height: "70vh",
         marginTop: isMobile ? MOBILE_HEIGHT : HEIGHT,
         backgroundImage: `url(${backgroundImage})`,
         backgroundPosition: "center",

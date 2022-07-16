@@ -30,7 +30,7 @@ const ValueInProcess = ({
 
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-      banner: { minHeight: window.innerHeight * 0.35 },
+      banner: { minHeight: window.innerHeight * 0.45 },
       button: {
         backgroundColor: theme.palette.primary.main,
         color: theme.palette.primary.contrastText,
@@ -57,7 +57,7 @@ const ValueInProcess = ({
               width: "100%",
               maxHeight: isMobile
                 ? window.innerHeight * 0.15
-                : window.innerHeight * 0.35,
+                :"100%",
             }}
           ></img>
         </Grid>

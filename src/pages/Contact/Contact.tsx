@@ -13,6 +13,7 @@ import React, { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
 import useThrottle from "../../hooks/useThrottle";
 import LandingSnackbar from "../../tools/Snackbar";
+import { ReactComponent as ContactIcon } from "./images/mun.svg";
 
 interface IContact {}
 
@@ -109,8 +110,13 @@ const Contact = (props: IContact) => {
             pronto lea tu mensaje
           </Typography>
         </Grid>
-        <Grid item>
-          <img />
+        <Grid item style={{
+          height: "200px",
+          width: "200px",
+          margin: "0 auto",
+          marginTop: "20px"
+        }}>
+          <ContactIcon />
         </Grid>
       </Grid>
       <Grid
